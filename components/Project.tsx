@@ -45,7 +45,7 @@ const projects = [
     title: "File tracking management",
     company: "Ministry of Mines Fianarantsoa Madagascar",
     duration: "Sep-Nov 2024",
-    description: "Description du projet...",
+    description: "Organizes and secures documents, tracks file progress",
     techs: [
       {
         name: "React",
@@ -69,8 +69,9 @@ const projects = [
     title: "Vehicle parts sales management.",
     company: "Personal Project",
     duration: "Mar-Apr 2024",
-    description: "Description du projet...",
-    githubLink: "https://github.com/ANDRIANALISOA-sylvere/Gestion-de-vente-de-pieces-de-vehicule",
+    description: "Manages vehicule parts sales, Ensures accurate stock updates",
+    githubLink:
+      "https://github.com/ANDRIANALISOA-sylvere/Gestion-de-vente-de-pieces-de-vehicule",
     techs: [
       {
         name: "React",
@@ -90,7 +91,8 @@ const projects = [
     title: "Archive management",
     company: "Town Hall Fianarantsoa Madagascar",
     duration: "Sep-Nov 2023",
-    description: "Description du projet...",
+    description:
+      "Organizes and stores documents securely, Simplifies document retrieval",
     techs: [
       {
         name: "NextJS",
