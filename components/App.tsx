@@ -1,6 +1,7 @@
 import { About } from "./About";
 import { Head } from "./Head";
 import { Project } from "./Project";
+import { Tech } from "./Tech";
 
 export function App() {
   return (
@@ -8,6 +9,7 @@ export function App() {
       <Head></Head>
       <About></About>
       <Project></Project>
+      <Tech></Tech>
     </div>
   );
 }
