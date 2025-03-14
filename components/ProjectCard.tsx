@@ -24,7 +24,7 @@ const ProjectCard: React.FC<ProjectProps> = ({
   return (
     <div className="rounded-xl bg-card/10 mt-2 shadow-input dark:shadow-none p-4 border-border border justify-between flex flex-col">
       {company && duration && (
-        <span className="text-gray-400 text-sm">
+        <span className="text-gray-600 text-sm">
           {company} / {duration}
         </span>
       )}
