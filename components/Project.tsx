@@ -114,7 +114,7 @@ export function Project() {
   return (
     <div className="mt-16">
       <h1 className="font-bold">Featured Projects 🚀</h1>
-      <div className="mt-3 md:grid md:grid-cols-3 md:gap-2">
+      <div className="mt-3">
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />
         ))}
