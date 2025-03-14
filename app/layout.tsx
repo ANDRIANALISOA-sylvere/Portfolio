@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Joséphin Sylvère ",
-  description: "Portfolio - Joséphin Sylvère",
+  title: "Joséphin Sylvère Website",
+  description: "Joséphin Sylvère ",
 };
 
 export default function RootLayout({
