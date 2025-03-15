@@ -19,10 +19,10 @@ export function Head() {
       </div>
 
       <div className="flex items-center space-x-4">
-        <span>About</span>
+        {/* <span>About</span>
         <span>Techs</span>
         <span>Projects</span>
-        <span>Contact</span>
+        <span>Contact</span> */}
         <ModeToggle></ModeToggle>
       </div>
     </header>

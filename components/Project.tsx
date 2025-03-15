@@ -113,7 +113,7 @@ const projects = [
 export function Project() {
   return (
     <div className="mt-16">
-      <h1 className="font-bold">Featured Projects 🚀</h1>
+      <h1 className="font-bold text-xl">Featured Projects 🚀</h1>
       <div className="mt-3 md:grid md:grid-cols-2 md:gap-2">
         {projects.map((project, index) => (
           <ProjectCard key={index} {...project} />
