@@ -64,6 +64,13 @@ export const metadata: Metadata = {
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Joséphin Sylvère | Portfolio",
+    description: "NodeJS Developer",
+    creator: "@sylverejosephin",
+    images: ["https://josephin-sylvere.vercel.app/images/avatar.png"],
+  },
 };
 
 // Viewport configuration
