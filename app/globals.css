@@ -125,3 +125,11 @@
 .important {
   @apply font-bold;
 }
+
+.text-secondaryDarker{
+  @apply opacity-25
+}
+
+.text-secondaryDarker:hover{
+  @apply opacity-100
+}
