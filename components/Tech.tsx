@@ -38,7 +38,7 @@ export function Tech() {
           >
             {/* Duplication des items pour créer un effet de défilement infini */}
             {[...techs, ...techs].map((tech, index) => (
-              <Badge key={index} variant="secondary">
+              <Badge key={index} variant="secondary" className="p-1">
                 <Image src={tech.src} alt={tech.name} width={40} height={40} />
               </Badge>
             ))}
@@ -59,7 +59,7 @@ export function Tech() {
           >
             {/* Duplication des items pour créer un effet de défilement infini */}
             {[...databases, ...databases].map((db, index) => (
-              <Badge variant="secondary" key={index}>
+              <Badge variant="secondary" key={index} className="p-1">
                 <Image src={db.src} alt={db.name} width={40} height={40} />
               </Badge>
             ))}
