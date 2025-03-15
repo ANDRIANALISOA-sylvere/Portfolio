@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Badge } from "./ui/badge";
 
 const techs = [
   { name: "Javascript", src: "/images/JavaScript.png" },
@@ -37,13 +38,9 @@ export function Tech() {
           >
             {/* Duplication des items pour créer un effet de défilement infini */}
             {[...techs, ...techs].map((tech, index) => (
-              <Image
-                key={index}
-                src={tech.src}
-                alt={tech.name}
-                width={60}
-                height={60}
-              />
+              <Badge key={index} variant="secondary">
+                <Image src={tech.src} alt={tech.name} width={40} height={40} />
+              </Badge>
             ))}
           </motion.div>
         </div>
@@ -62,13 +59,9 @@ export function Tech() {
           >
             {/* Duplication des items pour créer un effet de défilement infini */}
             {[...databases, ...databases].map((db, index) => (
-              <Image
-                key={index}
-                src={db.src}
-                alt={db.name}
-                width={60}
-                height={60}
-              />
+              <Badge variant="secondary" key={index}>
+                <Image src={db.src} alt={db.name} width={40} height={40} />
+              </Badge>
             ))}
           </motion.div>
         </div>
