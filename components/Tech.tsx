@@ -15,8 +15,8 @@ const databases = [
   { name: "PostgreSQL", src: "/images/PostgresSQL.png" },
   { name: "MySQL", src: "/images/MySQL.png" },
   { name: "MongoDB", src: "/images/MongoDB.png" },
-  { name: "VsCode", src: "/images/VsCode.png" },
   { name: "Blender", src: "/images/Blender.png" },
+  {name:'GraphQL',src:'/images/GraphQL.png'}
 ];
 
 export function Tech() {
