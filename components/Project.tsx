@@ -1,10 +1,14 @@
+"use client"
 import ProjectCard from "./ProjectCard";
+import {useState, useRef, useEffect} from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowLeft, ArrowRight } from 'lucide-react';
+import useMediaQuery from './hooks/useMediaQuery'
 
 const projects = [
   {
     title: "NoteVerse API",
     company: "Personal Project",
-    duration: "2025",
     description:
       " 📝NoteVerse - A powerful and intuitive API for managing notes efficiently with Express,Prisma, and PostgreSQL ",
     githubLink: "https://github.com/ANDRIANALISOA-sylvere/NoteVerse-API",
@@ -22,7 +26,6 @@ const projects = [
   {
     title: "TaskManager API",
     company: "Personal Project",
-    duration: "2025",
     description:
       " ✅ TaskManagerAPI - Efficient task management with a powerful and scalable API ",
     githubLink: "https://github.com/ANDRIANALISOA-sylvere/TaskManager-API",
@@ -44,7 +47,6 @@ const projects = [
   {
     title: "File tracking management",
     company: "Ministry of Mines Fianarantsoa Madagascar",
-    duration: "Sep-Nov 2024",
     description: "Organizes and secures documents, tracks file progress",
     techs: [
       {
@@ -68,7 +70,6 @@ const projects = [
   {
     title: "Vehicle parts sales management.",
     company: "Personal Project",
-    duration: "Mar-Apr 2024",
     description: "Manages vehicule parts sales, Ensures accurate stock updates",
     githubLink:
       "https://github.com/ANDRIANALISOA-sylvere/Gestion-de-vente-de-pieces-de-vehicule",
@@ -90,7 +91,6 @@ const projects = [
   {
     title: "Archive management",
     company: "Town Hall Fianarantsoa Madagascar",
-    duration: "Sep-Nov 2023",
     description:
       "Organizes and stores documents securely, Simplifies document retrieval",
     techs: [
@@ -111,14 +111,88 @@ const projects = [
 ];
 
 export function Project() {
+  const [currentPage, setCurrentPage] = useState(0);
+  const containerRef = useRef(null);
+
+  const isMedium = useMediaQuery("(min-width: 768px)");
+  const cardsPerPage = isMedium ? 2 : 1;
+
+  const totalPages = Math.ceil(projects.length / cardsPerPage);
+
+  useEffect(() => {
+    setCurrentPage(0); // reset page si cardsPerPage change
+  }, [cardsPerPage]);
+
+  const nextPage = () => {
+    setCurrentPage((prev) => (prev + 1) % totalPages);
+  };
+
+  const prevPage = () => {
+    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages);
+  };
+
+  const getVisibleProjects = () => {
+    const startIndex = currentPage * cardsPerPage;
+    return projects.slice(startIndex, startIndex + cardsPerPage);
+  };
+
   return (
-    <div className="mt-16">
-      <h1 className="font-bold text-xl">Featured Projects 🚀</h1>
-      <div className="mt-3 md:grid md:grid-cols-2 md:gap-2">
-        {projects.map((project, index) => (
-          <ProjectCard key={index} {...project} />
-        ))}
+      <div className="mt-16">
+        <h1 className="font-bold text-xl">Featured Projects 🚀</h1>
+
+        <div className="relative mt-3">
+          {/* Flèche gauche */}
+          <button
+              onClick={prevPage}
+              className="absolute bg-primary-foreground cursor-pointer left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 rounded-full p-2 shadow-md hover:bg-gray-200 dark:hover:bg-primary-foreground dark:bg-secondary"
+              aria-label="Previous projects"
+          >
+            <ArrowLeft size={20}/>
+          </button>
+
+          {/* Container avec animation */}
+          <div ref={containerRef} className="overflow-hidden h-70">
+            <AnimatePresence mode="wait">
+              <motion.div
+                  key={currentPage}
+                  initial={{x: 300, opacity: 0}}
+                  animate={{x: 0, opacity: 1}}
+                  exit={{x: -300, opacity: 0}}
+                  transition={{type: "spring", stiffness: 300, damping: 30}}
+                  className="md:grid md:grid-cols-2 md:gap-2 h-full"
+              >
+                {getVisibleProjects().map((project, index) => (
+                    <div className="h-full" key={index}>
+                      <ProjectCard  {...project} />
+                    </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Flèche droite */}
+          <button
+              onClick={nextPage}
+              className="absolute bg-primary-foreground cursor-pointer right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 rounded-full p-2 shadow-md hover:bg-gray-200 dark:hover:bg-primary-foreground dark:bg-secondary"
+              aria-label="Next projects"
+          >
+            <ArrowRight size={20}/>
+          </button>
+        </div>
+
+        {/* Indicateurs de page */}
+        <div className="flex justify-center mt-4 gap-2">
+          {Array.from({length: totalPages}).map((_, index) => (
+              <button
+                  key={index}
+                  onClick={() => setCurrentPage(index)}
+                  className={`w-2 h-2 rounded-full ${
+                      currentPage === index ? "bg-blue-600" : "bg-gray-300"
+                  }`}
+                  aria-label={`Go to page ${index + 1}`}
+              />
+          ))}
+        </div>
       </div>
-    </div>
   );
 }

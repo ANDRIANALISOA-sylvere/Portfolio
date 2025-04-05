@@ -13,6 +13,9 @@
 # testing
 /coverage
 
+#jetbrains ide
+/.idea/
+
 # next.js
 /.next/
 /out/

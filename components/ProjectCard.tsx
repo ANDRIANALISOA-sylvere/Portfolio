@@ -3,7 +3,6 @@ import React from "react";
 interface ProjectProps {
   title: string;
   company?: string;
-  duration?: string;
   description: string;
   githubLink?: string;
   techs?: TechItem[];
@@ -16,16 +15,15 @@ interface TechItem {
 const ProjectCard: React.FC<ProjectProps> = ({
   title,
   company,
-  duration,
   description,
   githubLink,
   techs,
 }) => {
   return (
-    <div className="rounded-xl bg-card/10 mt-2 shadow-input dark:shadow-none p-4 border-border border justify-between flex flex-col">
-      {company && duration && (
+    <div className="rounded-xl dark:bg-card/40 mt-2 shadow-input dark:shadow-none p-4 border-border border justify-between flex flex-col">
+      {company && (
         <span className="text-gray-600 text-sm">
-          {company} / {duration}
+          {company}
         </span>
       )}
       <h3 className="font-semibold dark:text-white">{title}</h3>
