@@ -20,32 +20,33 @@ const ProjectCard: React.FC<ProjectProps> = ({
   techs,
 }) => {
   return (
-    <div className="rounded-xl dark:bg-card/40 mt-2 shadow-input dark:shadow-none p-4 border-border border justify-between flex flex-col">
-      {company && (
-        <span className="text-gray-600 text-sm">
-          {company}
-        </span>
-      )}
-      <h3 className="font-semibold dark:text-white">{title}</h3>
-      <p className="dark:text-gray-300 mt-2 mb-2">{description}</p>
-
-      {techs && techs.length > 0 && (
-        <div className="flex flex-wrap gap-2">
-          {techs.map((tech, index) => (
-            <div
-              key={index}
-              className="flex items-center bg-slate-200 dark:bg-gray-800 rounded-md px-2 py-1"
-            >
-              <span
-                className="mr-1 flex items-center"
-                dangerouslySetInnerHTML={{ __html: tech.svg }}
-                style={{ width: "16px", height: "16px" }}
-              />
-              <span className="text-sm dark:text-gray-200">{tech.name}</span>
-            </div>
-          ))}
-        </div>
-      )}
+    <div className="rounded-xl dark:bg-card/40 mt-2 shadow-input dark:shadow-none p-4 border-border border flex flex-col h-full">
+      <div className="flex-grow flex flex-col">
+        {company && (
+          <span className="text-gray-600 text-sm">
+            {company}
+          </span>
+        )}
+        <h3 className="font-semibold dark:text-white">{title}</h3>
+        <p className="dark:text-gray-300 mt-2 mb-2 flex-grow">{description}</p>
+        {techs && techs.length > 0 && (
+          <div className="flex flex-wrap gap-2">
+            {techs.map((tech, index) => (
+              <div
+                key={index}
+                className="flex items-center bg-slate-200 dark:bg-gray-800 rounded-md px-2 py-1"
+              >
+                <span
+                  className="mr-1 flex items-center"
+                  dangerouslySetInnerHTML={{ __html: tech.svg }}
+                  style={{ width: "16px", height: "16px" }}
+                />
+                <span className="text-sm dark:text-gray-200">{tech.name}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
       <div className="flex justify-end mt-3">
         {githubLink && (
           <a

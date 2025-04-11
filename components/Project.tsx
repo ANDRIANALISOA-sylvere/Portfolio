@@ -181,7 +181,7 @@ export function Project() {
         </div>
 
         {/* Indicateurs de page */}
-        <div className="flex justify-center mt-4 gap-2">
+        <div className="flex justify-center gap-2 mt-10">
           {Array.from({length: totalPages}).map((_, index) => (
               <button
                   key={index}
