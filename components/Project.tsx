@@ -46,7 +46,7 @@ const projects = [
   },
   {
     title: "File tracking management",
-    company: "Ministry of Mines Fianarantsoa Madagascar",
+    company: "DIRMIM Fianarantsoa",
     description: "Organizes and secures documents, tracks file progress",
     techs: [
       {
@@ -90,7 +90,7 @@ const projects = [
   },
   {
     title: "Archive management",
-    company: "Town Hall Fianarantsoa Madagascar",
+    company: "CUF Fianarantsoa",
     description:
       "Organizes and stores documents securely, Simplifies document retrieval",
     techs: [
