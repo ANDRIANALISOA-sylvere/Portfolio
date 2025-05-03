@@ -144,7 +144,7 @@ export function Project() {
           {/* Flèche gauche */}
           <button
               onClick={prevPage}
-              className="absolute bg-primary-foreground cursor-pointer left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 rounded-full p-2 shadow-md hover:bg-gray-200 dark:hover:bg-primary-foreground dark:bg-secondary"
+              className="absolute bg-primary-foreground cursor-pointer left-0 top-1/2 -translate-y-1/2 -translate-x-6 md:-translate-x-16 z-10 rounded-full p-2 shadow-md hover:bg-gray-200 dark:hover:bg-primary-foreground dark:bg-secondary"
               aria-label="Previous projects"
           >
             <ArrowLeft size={20}/>
@@ -152,7 +152,7 @@ export function Project() {
 
           {/* Container avec animation */}
           <div ref={containerRef} className="overflow-hidden h-70">
-            <AnimatePresence mode="wait">
+            <AnimatePresence mode="popLayout">
               <motion.div
                   key={currentPage}
                   initial={{x: 300, opacity: 0}}
@@ -173,7 +173,7 @@ export function Project() {
           {/* Flèche droite */}
           <button
               onClick={nextPage}
-              className="absolute bg-primary-foreground cursor-pointer right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 rounded-full p-2 shadow-md hover:bg-gray-200 dark:hover:bg-primary-foreground dark:bg-secondary"
+              className="absolute bg-primary-foreground cursor-pointer right-0 top-1/2 -translate-y-1/2 translate-x-6 md:translate-x-16 z-10 rounded-full p-2 shadow-md hover:bg-gray-200 dark:hover:bg-primary-foreground dark:bg-secondary"
               aria-label="Next projects"
           >
             <ArrowRight size={20}/>
