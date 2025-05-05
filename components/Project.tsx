@@ -1,9 +1,9 @@
-"use client"
+"use client";
 import ProjectCard from "./ProjectCard";
-import {useState, useRef, useEffect} from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
-import useMediaQuery from './hooks/useMediaQuery'
+import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import useMediaQuery from "./hooks/useMediaQuery";
 
 const projects = [
   {
@@ -137,62 +137,62 @@ export function Project() {
   };
 
   return (
-      <div className="mt-16">
-        <h1 className="font-bold text-xl">Featured Projects 🚀</h1>
+    <div className="mt-16">
+      <h1 className="font-bold text-xl">Featured Projects 🚀</h1>
 
-        <div className="relative mt-3">
-          {/* Flèche gauche */}
-          <button
-              onClick={prevPage}
-              className="absolute bg-primary-foreground cursor-pointer left-0 top-1/2 -translate-y-1/2 -translate-x-6 md:-translate-x-16 z-10 rounded-full p-2 shadow-md hover:bg-gray-200 dark:hover:bg-primary-foreground dark:bg-secondary"
-              aria-label="Previous projects"
-          >
-            <ArrowLeft size={20}/>
-          </button>
+      <div className="relative mt-3">
+        {/* Flèche gauche */}
+        <button
+          onClick={prevPage}
+          className="absolute bg-primary-foreground cursor-pointer left-0 top-1/2 -translate-y-1/2 -translate-x-6 md:-translate-x-16 z-10 rounded-full p-2 shadow-md hover:bg-gray-200 dark:hover:bg-primary-foreground dark:bg-secondary"
+          aria-label="Previous projects"
+        >
+          <ArrowLeft size={20} />
+        </button>
 
-          {/* Container avec animation */}
-          <div ref={containerRef} className="overflow-hidden h-70">
-            <AnimatePresence mode="popLayout">
-              <motion.div
-                  key={currentPage}
-                  initial={{x: 300, opacity: 0}}
-                  animate={{x: 0, opacity: 1}}
-                  exit={{x: -300, opacity: 0}}
-                  transition={{type: "spring", stiffness: 300, damping: 30}}
-                  className="md:grid md:grid-cols-2 md:gap-2 h-full"
-              >
-                {getVisibleProjects().map((project, index) => (
-                    <div className="h-full" key={index}>
-                      <ProjectCard  {...project} />
-                    </div>
-                ))}
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Flèche droite */}
-          <button
-              onClick={nextPage}
-              className="absolute bg-primary-foreground cursor-pointer right-0 top-1/2 -translate-y-1/2 translate-x-6 md:translate-x-16 z-10 rounded-full p-2 shadow-md hover:bg-gray-200 dark:hover:bg-primary-foreground dark:bg-secondary"
-              aria-label="Next projects"
-          >
-            <ArrowRight size={20}/>
-          </button>
+        {/* Container avec animation */}
+        <div ref={containerRef} className="overflow-hidden h-70">
+          <AnimatePresence mode="popLayout">
+            <motion.div
+              key={currentPage}
+              initial={{ x: 300, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: -300, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="md:grid md:grid-cols-2 md:gap-2"
+            >
+              {getVisibleProjects().map((project, index) => (
+                <div key={index}>
+                  <ProjectCard {...project} />
+                </div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
         </div>
 
-        {/* Indicateurs de page */}
-        <div className="flex justify-center gap-2 mt-10">
-          {Array.from({length: totalPages}).map((_, index) => (
-              <button
-                  key={index}
-                  onClick={() => setCurrentPage(index)}
-                  className={`w-2 h-2 rounded-full ${
-                      currentPage === index ? "bg-blue-600" : "bg-gray-300"
-                  }`}
-                  aria-label={`Go to page ${index + 1}`}
-              />
-          ))}
-        </div>
+        {/* Flèche droite */}
+        <button
+          onClick={nextPage}
+          className="absolute bg-primary-foreground cursor-pointer right-0 top-1/2 -translate-y-1/2 translate-x-6 md:translate-x-16 z-10 rounded-full p-2 shadow-md hover:bg-gray-200 dark:hover:bg-primary-foreground dark:bg-secondary"
+          aria-label="Next projects"
+        >
+          <ArrowRight size={20} />
+        </button>
       </div>
+
+      {/* Indicateurs de page */}
+      <div className="flex justify-center gap-2 mt-10">
+        {Array.from({ length: totalPages }).map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentPage(index)}
+            className={`w-2 h-2 rounded-full ${
+              currentPage === index ? "bg-blue-600" : "bg-gray-300"
+            }`}
+            aria-label={`Go to page ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
   );
 }

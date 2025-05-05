@@ -1,4 +1,5 @@
 import React from "react";
+import { GlowingEffect } from "./ui/glowing-effect";
 
 interface ProjectProps {
   title: string;
@@ -20,13 +21,18 @@ const ProjectCard: React.FC<ProjectProps> = ({
   techs,
 }) => {
   return (
-    <div className="rounded-xl dark:bg-card/40 mt-2 shadow-input dark:shadow-none p-4 border-border border flex flex-col h-full">
-      <div className="flex-grow flex flex-col">
-        {company && (
-          <span className="text-gray-600 text-sm">
-            {company}
-          </span>
-        )}
+    <div className="relative rounded-xl dark:bg-card/40 mt-2 shadow-input dark:shadow-none p-4 border-border border h-[40vmin]">
+      <GlowingEffect
+        blur={0}
+        borderWidth={2}
+        spread={80}
+        glow={true}
+        disabled={false}
+        proximity={64}
+        inactiveZone={0.01}
+      />
+      <div>
+        {company && <span className="text-gray-600 text-sm">{company}</span>}
         <h3 className="font-semibold dark:text-white">{title}</h3>
         <p className="dark:text-gray-300 mt-2 mb-2 flex-grow">{description}</p>
         {techs && techs.length > 0 && (
