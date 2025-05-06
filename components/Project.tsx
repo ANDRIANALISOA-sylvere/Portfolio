@@ -139,7 +139,6 @@ export function Project() {
   return (
     <div className="mt-16">
       <h1 className="font-bold text-xl">Featured Projects 🚀</h1>
-
       <div className="relative mt-3">
         {/* Flèche gauche */}
         <button
@@ -150,19 +149,24 @@ export function Project() {
           <ArrowLeft size={20} />
         </button>
 
-        {/* Container avec animation */}
-        <div ref={containerRef} className="overflow-hidden h-70">
+        {/* Container avec animation améliorée */}
+        <div ref={containerRef} className="overflow-hidden">
           <AnimatePresence mode="popLayout">
             <motion.div
               key={currentPage}
               initial={{ x: 300, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               exit={{ x: -300, opacity: 0 }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="md:grid md:grid-cols-2 md:gap-2"
+              transition={{
+                type: "spring",
+                stiffness: 300,
+                damping: 30,
+                duration: 0.4,
+              }}
+              className="md:grid md:grid-cols-2 md:gap-4 h-full"
             >
               {getVisibleProjects().map((project, index) => (
-                <div key={index}>
+                <div key={index} className="h-full">
                   <ProjectCard {...project} />
                 </div>
               ))}
@@ -180,15 +184,17 @@ export function Project() {
         </button>
       </div>
 
-      {/* Indicateurs de page */}
+      {/* Indicateurs de page avec animation */}
       <div className="flex justify-center gap-2 mt-10">
         {Array.from({ length: totalPages }).map((_, index) => (
-          <button
+          <motion.button
             key={index}
             onClick={() => setCurrentPage(index)}
             className={`w-2 h-2 rounded-full ${
               currentPage === index ? "bg-blue-600" : "bg-gray-300"
             }`}
+            whileHover={{ scale: 1.3 }}
+            whileTap={{ scale: 0.9 }}
             aria-label={`Go to page ${index + 1}`}
           />
         ))}

@@ -24,7 +24,7 @@ export function Exp() {
             className="rounded-md"
           ></Image>
           <div>
-            <h2 className="font-bold text-md">
+            <h2 className="font-bold text-sm md:text-md">
               DIRMIM Fianarantsoa - Internship
             </h2>
             <small>Août-Nov 2024</small>
@@ -49,7 +49,7 @@ export function Exp() {
             className="rounded-md"
           ></Image>
           <div>
-            <h2 className="font-bold text-md">CUF Fianarantsoa - Internship</h2>
+            <h2 className="font-bold text-sm md:text-md">CUF Fianarantsoa - Internship</h2>
             <small>Sept-Nov 2023</small>
           </div>
         </div>
