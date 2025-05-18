@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+// import { ThemeProvider } from "@/components/theme-provider";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     siteName: "Joséphin Sylvère Portfolio",
     images: [
       {
-        url: "https://josephin-sylvere.vercel.app/images/avatar.png",
+        url: "https://josephin-sylvere.vercel.app/images/mon-avatar.png",
         width: 1200,
         height: 630,
         alt: "Joséphin Sylvère Portfolio",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     title: "Joséphin Sylvère | Portfolio",
     description: "NodeJS Developer",
     creator: "@sylverejosephin",
-    images: ["https://josephin-sylvere.vercel.app/images/avatar.png"],
+    images: ["https://josephin-sylvere.vercel.app/images/mon-avatar.png"],
   },
 };
 
@@ -97,14 +97,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-[family-name:var(--font-geist-sans)] antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange
-        >
+        
           {children}
-        </ThemeProvider>
+        
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 "use client";
 import ProjectCard from "./ProjectCard";
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import useMediaQuery from "./hooks/useMediaQuery";
 
@@ -24,12 +24,16 @@ const projects = [
     ],
   },
   {
-    title: "TaskManager API",
+    title: "TaskManager",
     company: "Personal Project",
     description:
-      " ✅ TaskManagerAPI - Efficient task management with a powerful and scalable API ",
-    githubLink: "https://github.com/ANDRIANALISOA-sylvere/TaskManager-API",
+      " 📈 TaskManager - Modern task organization platform built with Next.js for seamless productivity workflow ",
+    githubLink: "https://github.com/ANDRIANALISOA-sylvere/TaskManager",
     techs: [
+      {
+        name: "NextJS",
+        svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path d="M64 0C28.7 0 0 28.7 0 64s28.7 64 64 64c11.2 0 21.7-2.9 30.8-7.9L48.4 55.3v36.6h-6.8V41.8h6.8l50.5 75.8C116.4 106.2 128 86.5 128 64c0-35.3-28.7-64-64-64zm22.1 84.6l-7.5-11.3V41.8h7.5v42.8z"/></svg>',
+      },
       {
         name: "NestJS",
         svg: '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><path fill="#DF234F" d="M75.4.3c-.9 0-1.8.2-2.6.5 1.7 1.1 2.6 2.6 3.1 4.3 0 .2.1.4.1.6 0 .2.1.4.1.6.1 2.9-.8 3.3-1.4 5-1 2.2-.7 4.6.5 6.5.1.2.2.5.4.7-1.3-8.4 5.7-9.6 7-12.2.1-2.3-1.8-3.8-3.3-4.9C77.8.5 76.6.3 75.4.3zm10.5 1.8c-.1.8 0 .6-.1 1 0 .3 0 .6-.1.9-.1.3-.1.5-.2.8-.1.3-.2.5-.3.8-.1.2-.2.4-.3.7-.1.1-.2.3-.3.4-.1.1-.1.2-.2.3-.2.2-.3.5-.5.7l-.6.6c-.2.2-.4.4-.6.5-.7.5-1.5.9-2.2 1.4-.2.2-.5.3-.7.5-.2.2-.4.3-.6.5l-.6.6c-.2.2-.4.4-.5.7-.2.2-.3.5-.5.7-.1.3-.2.5-.4.8-.1.3-.2.5-.3.8-.1.3-.2.6-.2.8 0 .1 0 .3-.1.4 0 .1 0 .3-.1.4v1.4c0 .3 0 .5.1.8 0 .3.1.5.2.8.1.3.2.5.3.8.1.2.2.3.2.5l-7.6-2.9c-1.3-.4-2.5-.7-3.8-1-.7-.2-1.4-.3-2.1-.5-2-.4-4-.7-6-.9h-.2c-2-.2-3.9-.3-5.9-.3-1.5 0-2.9.1-4.3.2-2 .1-4 .4-6 .7l-1.5.3c-1 .2-2 .4-3 .7-.5.1-1 .3-1.5.4-.5.2-1 .4-1.4.6-.4.2-.7.3-1.1.5-.1 0-.1 0-.2.1-.3.2-.6.3-.9.5-.1 0-.2.1-.2.1-.4.2-.7.4-1 .5-.2.1-.5.2-.7.3-.1.1-.2.1-.3.2-.3.2-.6.3-.9.5-.3.2-.6.3-.8.5-.2.2-.5.3-.7.5 0 0-.1 0-.1.1-.2.1-.4.3-.6.5l-.1.1c-.2.1-.3.3-.5.4-.1 0-.1.1-.2.1-.2.1-.3.3-.5.4 0 .1-.1.1-.1.1l-.6.6-.1.1-.6.6s0 .1-.1.1l-.5.5c-.1.1-.2.1-.2.2l-.6.6c0 .1-.1.1-.1.2l-.8.8-.1.1c-.5.6-1.1 1.1-1.7 1.6-.6.5-1.2 1-1.9 1.5s-1.3.9-2 1.3-1.4.7-2.1 1c-.7.3-1.4.6-2.1.8-1.4.3-2.8.9-4 1 0-.5-.3-.4-.6-.4-.3.1-.6.1-.8.2-.3.1-.5.2-.8.3-.3.1-.5.2-.8.4-.2.2-.5.3-.7.5-.2.2-.5.4-.7.6-.2.2-.5.4-.7.6-.2.2-.4.4-.6.7-.2.3-.4.5-.5.8-.2.2-.3.5-.5.8-.1.3-.3.6-.4.9l-.3.9c-.1.3-.1.5-.2.8v.1c-.1.3-.1.7-.1.9.1-.1.1.1.1.3v.4c0 .2.1.4.1.6.1.2.1.4.2.6.1.2.2.4.4.6.1.2.3.4.4.6.2.2.4.4.6.5.2.2.4.4.6.5.8.7 1 .9 2 1.5.2.1.3.2.5.3h.1v.2c0 .3.1.5.2.8.1.3.2.6.3.8l.3.6c0 .1.1.1.1.2.1.3.3.5.4.7.2.2.3.5.5.7l.6.6.6.6H8c.2.2.4.3.6.5.2.2.5.3.7.4.2.1.5.3.8.4.2.1.4.2.7.2 0 0 .1 0 .1.1.1 0 .3.1.4.1-.1 1.8-.1 3.5.1 4.1.3.7 1.8-1.4 3.2-3.7-.2 2.3-.3 5 0 5.8.4.8 2.3-1.8 4.1-4.6 23.4-5.4 44.8 10.8 47.1 33.7-.4-3.6-4.8-5.6-6.9-5.1-1 2.4-2.7 5.6-5.4 7.5.2-2.2.1-4.4-.3-6.6-.7 3-2.1 5.9-4.1 8.3-3.1.2-6.3-1.3-7.9-3.6-.1-.1-.2-.3-.3-.4-.1-.2-.2-.5-.3-.7-.1-.2-.2-.5-.2-.7v-.7-.5c0-.2.1-.5.2-.7.1-.2.1-.5.2-.7.1-.2.2-.5.4-.7.6-1.6.6-2.9-.5-3.6l-.6-.3c-.1 0-.3-.1-.4-.1-.1 0-.2-.1-.3-.1-.2-.1-.5-.1-.7-.2-.2-.1-.5-.1-.7-.1-.2 0-.5-.1-.7-.1h-.5c-.3 0-.5 0-.7.1-.2 0-.5.1-.7.1-.2.1-.5.1-.7.2-.2.1-.4.2-.7.3l-.6.3c-7.7 5-3.1 16.8 2.1 20.2-2 .4-4 .8-4.6 1.2l-.1.1c1.4.9 2.9 1.6 4.5 2.2 2.1.7 4.4 1.3 5.4 1.6 2.7.6 5.5.8 8.3.6 14.6-1 26.6-12.2 28.8-26.8.1.3.1.6.2.9.1.6.2 1.2.3 1.9.1.3.1.6.1.9v.1c0 .3.1.6.1.9 0 .4.1.7.1 1.1V91.6c0 .3-.1.5-.1.8v.3c0 .3-.1.6-.1 1-.1.3-.1.6-.2.9v.1c-.1.3-.1.6-.2.9v.1c-.1.3-.1.6-.2.9v.1l-.3.9v.1c-.1.3-.2.7-.3 1-.1.3-.2.6-.4 1-.1.3-.2.7-.4 1-.1.3-.3.6-.4 1-.1.3-.3.6-.4.9 0 .1-.1.2-.1.2s0 .1-.1.1c-2.1 4.3-5.3 8.1-9.3 11.1-.3.2-.5.4-.8.6-.1.1-.2.1-.2.2-.2.2-.5.3-.7.5l.1.2c.5-.1.9-.1 1.4-.2.9-.1 1.7-.3 2.6-.5.2 0 .5-.1.7-.2.2 0 .3-.1.5-.1s.5-.1.7-.1c.2-.1.4-.1.6-.2 3.3-.8 6.5-1.9 9.6-3.2-5.3 7.2-12.3 13-20.5 16.8 3.8-.3 7.6-.9 11.3-2 13.3-3.9 24.5-12.9 31.2-25-1.4 7.6-4.4 14.9-8.9 21.3 3.2-2.1 6.1-4.6 8.8-7.3 7.4-7.7 12.3-17.6 13.9-28.1 1.1 5.2 1.5 10.6 1 15.9 23.9-33.3 2-67.8-7.2-76.9 0-.1-.1-.1-.1-.2v0c0 .4 0 .8-.1 1.2-.1.8-.2 1.5-.3 2.2-.2.7-.4 1.5-.6 2.2-.2.7-.5 1.4-.8 2.1-.3.7-.6 1.4-1 2-.4.6-.8 1.3-1.2 1.9-.4.6-.9 1.2-1.4 1.8-.5.6-1 1.1-1.6 1.7-.3.3-.6.6-1 .8-.3.2-.5.4-.8.7-.6.5-1.2.9-1.9 1.3-.6.4-1.3.8-2 1.1l-2.1.9c-.7.3-1.4.5-2.1.7-.7.2-1.5.4-2.2.5-.8.1-1.5.2-2.2.3-.5 0-1.1.1-1.6.1-.8 0-1.5-.1-2.2-.1-.8-.1-1.5-.2-2.2-.3-.8-.1-1.5-.3-2.2-.6.7-.1 1.5-.1 2.2-.3.8-.1 1.5-.3 2.2-.5.7-.2 1.5-.4 2.1-.7l2.1-.9c.7-.3 1.3-.7 2-1.1.6-.4 1.3-.9 1.9-1.3.6-.5 1.2-1 1.7-1.5.6-.5 1.1-1.1 1.6-1.6.5-.6 1-1.2 1.4-1.8.1-.1.1-.2.2-.3.3-.5.7-1.1 1-1.6.4-.7.7-1.3 1-2 .3-.7.6-1.4.8-2.1l.6-2.1c.1-.8.3-1.5.3-2.2.1-.8.1-1.5.1-2.2 0-.5 0-1.1-.1-1.6-.1-.8-.2-1.5-.3-2.2-.1-.8-.3-1.5-.5-2.2-.2-.7-.5-1.4-.7-2.1-.3-.7-.6-1.4-.9-2-.4-.7-.7-1.3-1.1-2-.4-.6-.9-1.2-1.3-1.8-.5-.6-1-1.1-1.5-1.7-.3-.3-.6-.6-.9-.8-1.5-1.2-3-2.2-4.6-3.2-.2-.1-.4-.2-.7-.3-1.3-1.1-2.3-1.4-3.3-1.8z"/></svg>',
@@ -114,6 +118,9 @@ export function Project() {
   const [currentPage, setCurrentPage] = useState(0);
   const containerRef = useRef(null);
 
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
+
   const isMedium = useMediaQuery("(min-width: 768px)");
   const cardsPerPage = isMedium ? 2 : 1;
 
@@ -136,69 +143,206 @@ export function Project() {
     return projects.slice(startIndex, startIndex + cardsPerPage);
   };
 
+  const titleVariants = {
+    hidden: { opacity: 0, y: -30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0, scale: 0.5 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.4,
+        delay: 0.3,
+        type: "spring",
+        stiffness: 200,
+      },
+    },
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.4,
+        delay: 0.2,
+      },
+    },
+  };
+
+  const indicatorVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        delay: 0.5,
+      },
+    },
+  };
+
   return (
-    <div className="mt-16">
-      <h1 className="font-bold text-xl">Featured Projects 🚀</h1>
-      <div className="relative mt-3">
-        {/* Flèche gauche */}
-        <button
-          onClick={prevPage}
-          className="absolute bg-primary-foreground cursor-pointer left-0 top-1/2 -translate-y-1/2 -translate-x-6 md:-translate-x-16 z-10 rounded-full p-2 shadow-md hover:bg-gray-200 dark:hover:bg-primary-foreground dark:bg-secondary"
-          aria-label="Previous projects"
+    <motion.div
+      className="mt-16 px-8"
+      id="projects"
+      ref={sectionRef}
+      initial="hidden"
+      animate={isInView ? "visible" : "hidden"}
+    >
+      <div className="max-w-6xl mx-auto">
+        <motion.h1
+          className="font-bold text-3xl md:text-4xl text-blue-500 mb-8 flex items-center gap-3"
+          variants={titleVariants}
         >
-          <ArrowLeft size={20} />
-        </button>
-
-        {/* Container avec animation améliorée */}
-        <div ref={containerRef} className="overflow-hidden">
-          <AnimatePresence mode="popLayout">
-            <motion.div
-              key={currentPage}
-              initial={{ x: 300, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              exit={{ x: -300, opacity: 0 }}
-              transition={{
-                type: "spring",
-                stiffness: 300,
-                damping: 30,
-                duration: 0.4,
-              }}
-              className="md:grid md:grid-cols-2 md:gap-4 h-full"
-            >
-              {getVisibleProjects().map((project, index) => (
-                <div key={index} className="h-full">
-                  <ProjectCard {...project} />
-                </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
-        </div>
-
-        {/* Flèche droite */}
-        <button
-          onClick={nextPage}
-          className="absolute bg-primary-foreground cursor-pointer right-0 top-1/2 -translate-y-1/2 translate-x-6 md:translate-x-16 z-10 rounded-full p-2 shadow-md hover:bg-gray-200 dark:hover:bg-primary-foreground dark:bg-secondary"
-          aria-label="Next projects"
-        >
-          <ArrowRight size={20} />
-        </button>
-      </div>
-
-      {/* Indicateurs de page avec animation */}
-      <div className="flex justify-center gap-2 mt-10">
-        {Array.from({ length: totalPages }).map((_, index) => (
+          Featured Projects
+          <motion.span
+            className="text-2xl"
+            initial={{ rotate: -10, scale: 0 }}
+            animate={
+              isInView ? { rotate: 0, scale: 1 } : { rotate: -10, scale: 0 }
+            }
+            transition={{
+              duration: 0.5,
+              delay: 0.4,
+              type: "spring",
+              stiffness: 200,
+            }}
+          >
+            🚀
+          </motion.span>
+        </motion.h1>
+        <motion.div className="relative mt-3" variants={containerVariants}>
+          {/* Flèche gauche */}
           <motion.button
-            key={index}
-            onClick={() => setCurrentPage(index)}
-            className={`w-2 h-2 rounded-full ${
-              currentPage === index ? "bg-blue-600" : "bg-gray-300"
-            }`}
-            whileHover={{ scale: 1.3 }}
-            whileTap={{ scale: 0.9 }}
-            aria-label={`Go to page ${index + 1}`}
-          />
-        ))}
+            onClick={prevPage}
+            variants={buttonVariants}
+            className="absolute bg-white cursor-pointer left-0 top-1/2 -translate-y-1/2 -translate-x-6 md:-translate-x-16 z-10 rounded-full p-3 shadow-md border border-gray-200"
+            aria-label="Previous projects"
+            whileHover={{
+              scale: 1.1,
+              backgroundColor: "#f3f4f6",
+              boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)",
+            }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+          >
+            <ArrowLeft size={20} className="text-purple-600" />
+          </motion.button>
+
+          {/* Container avec animation améliorée */}
+          <div ref={containerRef} className="overflow-hidden">
+            <AnimatePresence mode="popLayout">
+              <motion.div
+                key={currentPage}
+                initial={{ x: 300, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                exit={{ x: -300, opacity: 0 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 300,
+                  damping: 30,
+                  duration: 0.4,
+                }}
+                className="md:grid md:grid-cols-2 md:gap-4 h-full"
+              >
+                {getVisibleProjects().map((project, index) => (
+                  <div key={index} className="h-full">
+                    <ProjectCard {...project} />
+                  </div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Flèche droite */}
+          <motion.button
+            onClick={nextPage}
+            variants={buttonVariants}
+            className="absolute bg-white cursor-pointer right-0 top-1/2 -translate-y-1/2 translate-x-6 md:translate-x-16 z-10 rounded-full p-3 shadow-md border border-gray-200"
+            aria-label="Next projects"
+            whileHover={{
+              scale: 1.1,
+              backgroundColor: "#f3f4f6",
+              boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)",
+            }}
+            whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+          >
+            <ArrowRight size={20} className="text-purple-600" />
+          </motion.button>
+        </motion.div>
+
+        {/* Indicateurs de page avec animation */}
+        <motion.div
+          className="flex justify-center gap-3 mt-10"
+          variants={indicatorVariants}
+        >
+          {Array.from({ length: totalPages }).map((_, index) => (
+            <motion.button
+              key={index}
+              onClick={() => setCurrentPage(index)}
+              className={`w-3 h-3 rounded-full transition-colors duration-200 cursor-pointer ${
+                currentPage === index
+                  ? "bg-purple-600 shadow-lg"
+                  : "bg-gray-300 hover:bg-gray-400"
+              }`}
+              whileHover={{
+                scale: 1.5,
+                transition: { duration: 0.2 },
+              }}
+              whileTap={{ scale: 0.9 }}
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+                transition: { delay: 0.6 + index * 0.1 },
+              }}
+              aria-label={`Go to page ${index + 1}`}
+            />
+          ))}
+        </motion.div>
+
+        {/* Section Call-to-Action optionnelle */}
+        <motion.div
+          className="mt-12 text-center"
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+        >
+          <motion.div
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-purple-100 to-blue-100 px-6 py-3 rounded-full"
+            whileHover={{
+              scale: 1.05,
+              boxShadow: "0 8px 25px rgba(0, 0, 0, 0.1)",
+            }}
+          >
+            <span className="text-gray-600 text-sm">
+              Want to see more projects?
+            </span>
+            <motion.a
+              href="https://github.com/ANDRIANALISOA-sylvere"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-1 rounded-full text-sm font-medium transition-colors duration-200"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              View GitHub
+            </motion.a>
+          </motion.div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }

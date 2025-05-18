@@ -77,6 +77,10 @@
   --sidebar-ring: oklch(0.704 0.04 256.788);
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
+  --mypurple: #9b5de5;
+  --mypink: #f15bb5;
+  --myblue: #00bbf9;
+  --myyellow:#fee440;
 }
 
 .dark {
@@ -111,6 +115,10 @@
   --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.551 0.027 264.364);
+  --mypurple: #9b5de5;
+  --mypink: #f15bb5;
+  --myblue: #00bbf9;
+  --myyellow:#fee440;
 }
 
 @layer base {
