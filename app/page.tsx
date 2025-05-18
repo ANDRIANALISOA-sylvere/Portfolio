@@ -5,9 +5,7 @@ export default function Home() {
     <div className="md:flex md:h-screen">
       <div className="md:w-1/4"></div>
       <div className="md:w-1/2">
-        <div className="p-6">
-          <App></App>
-        </div>
+        <App></App>
       </div>
       <div className="md:w-1/4"></div>
     </div>
