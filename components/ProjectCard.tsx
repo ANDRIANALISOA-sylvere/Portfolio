@@ -1,3 +1,4 @@
+import { Link } from "lucide-react";
 import React from "react";
 
 interface ProjectProps {
@@ -5,6 +6,8 @@ interface ProjectProps {
   company?: string;
   description: string;
   githubLink?: string;
+  livedemo: boolean;
+  inprogress: boolean;
   techs?: TechItem[];
 }
 
@@ -19,6 +22,8 @@ const ProjectCard: React.FC<ProjectProps> = ({
   description,
   githubLink,
   techs,
+  livedemo,
+  inprogress,
 }) => {
   return (
     <div className="group relative bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 p-6 border border-gray-200 hover:border-purple-300 h-full flex flex-col overflow-hidden">
@@ -29,8 +34,13 @@ const ProjectCard: React.FC<ProjectProps> = ({
         {/* En-tête du projet */}
         <div className="mb-4">
           {company && (
-            <span className="text-blue-500 text-sm font-medium bg-blue-50 px-2 py-1 rounded-full">
+            <span className="text-blue-500 text-sm font-medium bg-blue-50 px-2 py-1 rounded-full mr-1">
               {company}
+            </span>
+          )}
+          {inprogress && (
+            <span className="text-purple-500 text-sm font-medium bg-purple-50 px-2 py-1 rounded-full">
+              In progress
             </span>
           )}
           <h3 className="font-bold text-xl text-gray-800 mt-2 group-hover:text-purple-600 transition-colors duration-200">
@@ -83,12 +93,12 @@ const ProjectCard: React.FC<ProjectProps> = ({
           )}
 
           {/* Bouton demo optionnel */}
-          <button className="inline-flex items-center gap-2 bg-yellow-300 hover:bg-yellow-400 text-purple-800 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 hover:shadow-lg">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zM9.5 17.5v-11l7 5.5-7 5.5z" />
-            </svg>
-            <span>View Demo (soon)</span>
-          </button>
+          {livedemo && (
+            <button className="inline-flex cursor-pointer items-center gap-2 bg-yellow-300 hover:bg-yellow-400 text-purple-800 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 hover:scale-105 hover:shadow-lg">
+              <Link size={16}></Link>
+              <span>Live Demo (soon)</span>
+            </button>
+          )}
         </div>
       </div>
 

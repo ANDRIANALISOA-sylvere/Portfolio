@@ -12,7 +12,7 @@ export function Exp() {
     {
       company: "DIRMIM Fianarantsoa",
       role: "Software Development Intern",
-      period: "Août - Nov 2024",
+      period: "Aug - Nov 2024",
       logo: "/images/MIM.jpg",
       description:
         "Web application development, performance optimization, database management, and graphical user interface development.",

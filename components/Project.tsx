@@ -12,6 +12,8 @@ const projects = [
     description:
       " 📝NoteVerse - A powerful and intuitive API for managing notes efficiently with Express,Prisma, and PostgreSQL ",
     githubLink: "https://github.com/ANDRIANALISOA-sylvere/NoteVerse-API",
+    livedemo: true,
+    inprogress: true,
     techs: [
       {
         name: "ExpressJS",
@@ -29,6 +31,8 @@ const projects = [
     description:
       " 📈 TaskManager - Modern task organization platform built with Next.js for seamless productivity workflow ",
     githubLink: "https://github.com/ANDRIANALISOA-sylvere/TaskManager",
+    livedemo: true,
+    inprogress: true,
     techs: [
       {
         name: "NextJS",
@@ -52,6 +56,8 @@ const projects = [
     title: "File tracking management",
     company: "DIRMIM Fianarantsoa",
     description: "Organizes and secures documents, tracks file progress",
+    livedemo: false,
+    inprogress: false,
     techs: [
       {
         name: "React",
@@ -77,6 +83,8 @@ const projects = [
     description: "Manages vehicule parts sales, Ensures accurate stock updates",
     githubLink:
       "https://github.com/ANDRIANALISOA-sylvere/Gestion-de-vente-de-pieces-de-vehicule",
+    livedemo: true,
+    inprogress: false,
     techs: [
       {
         name: "React",
@@ -97,6 +105,8 @@ const projects = [
     company: "CUF Fianarantsoa",
     description:
       "Organizes and stores documents securely, Simplifies document retrieval",
+    livedemo: false,
+    inprogress: false,
     techs: [
       {
         name: "NextJS",
