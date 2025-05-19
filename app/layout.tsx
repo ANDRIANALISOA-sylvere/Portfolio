@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     siteName: "Joséphin Sylvère Portfolio",
     images: [
       {
-        url: "https://josephin-sylvere.vercel.app/images/header.png",
+        url: "https://josephin-sylvere.vercel.app/images/header.PNG",
         width: 1200,
         height: 630,
         alt: "Joséphin Sylvère Portfolio",
