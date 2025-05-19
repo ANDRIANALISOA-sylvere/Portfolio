@@ -21,8 +21,10 @@ export const metadata: Metadata = {
     template: "%s | Joséphin Sylvère",
   },
   description: "Joséphin Sylvère - NodeJs Developer",
-  keywords: ["developer", "portfolio", "nextjs", "react", "web development"],
-  authors: [{ name: "Joséphin Sylvère" }],
+  keywords: ["developer", "portfolio", "nodejs", "web development"],
+  authors: [
+    { name: "Joséphin Sylvère", url: "https://josephinsylvere.vercel.app" },
+  ],
   creator: "Joséphin Sylvère",
   publisher: "Joséphin Sylvère",
   formatDetection: {
@@ -57,7 +59,7 @@ export const metadata: Metadata = {
     siteName: "Joséphin Sylvère Portfolio",
     images: [
       {
-        url: "https://josephin-sylvere.vercel.app/images/mon-avatar.png",
+        url: "https://josephin-sylvere.vercel.app/images/header.png",
         width: 1200,
         height: 630,
         alt: "Joséphin Sylvère Portfolio",
@@ -97,9 +99,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-[family-name:var(--font-geist-sans)] antialiased`}
       >
-        
-          {children}
-        
+        {children}
       </body>
     </html>
   );
