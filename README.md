@@ -43,7 +43,7 @@ npm run dev
 
 # Deployment
 
-<p>This portfolio is deployed via **Vercel** and automatically updates when changes are pushed to the main branch</p>
+This portfolio is deployed via **Vercel** and automatically updates when changes are pushed to the main branch
 
 
 # Contributing
