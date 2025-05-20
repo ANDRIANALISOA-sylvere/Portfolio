@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# My personal Portfolio
 
-## Getting Started
+<p>welcome to my personal developer portfolio! This website showcase my skills, projects, and experience as software developer. It's designed to give you an overview of who i am, what i do, and how to get in touch with me.</p>
 
-First, run the development server:
+# Features
+
+* **About me** - Learn more about my background, interests, and journey in tech.
+
+* **Projects** - A collection od selected projects, including descriptions, technologies used, and links to code/demo.
+
+* **Skills** - A summary of programming languages, frameworks,tools, and technologies i use.
+
+* **Contact** - Easy ways to connect with me via email or social media.
+
+# Technologies used
+
+* **Frontend** : Nextjs
+
+ * **Styling** : Tailwindcss
+
+ * **Hosting** : Vercel
+
+# Setup intructions
+
+1. Clone the repository
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/ANDRIANALISOA-sylvere/Portfolio.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Navigate to the project directory
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd Portfolio
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Run
 
-## Learn More
+```bash
+npm install
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+# Deployment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<p>This portfolio is deployed via **Vercel** and automatically updates when changes are pushed to the main branch</p>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+# Contributing
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+<p>This project is personal, but feel to fork it or suggest improvements via pull requests or issues.</p>
