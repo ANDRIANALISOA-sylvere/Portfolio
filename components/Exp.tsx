@@ -14,7 +14,8 @@ export function Exp() {
       role: "Frontend Developer",
       period: "June - Now 2025",
       logo: "/images/logo-itt-mada.jpg",
-      description: "Web application development, user interface development.",
+      description:
+        "Web application development, UI/UX enhancements, and performance optimizations.",
       technologies: ["JavaScript", "React", "Nextjs"],
     },
     {
