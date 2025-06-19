@@ -10,6 +10,14 @@ export function Exp() {
 
   const experiences = [
     {
+      company: "ITT-Madagascar",
+      role: "Frontend Developer",
+      period: "June - Now 2025",
+      logo: "/images/logo-itt-mada.jpg",
+      description: "Web application development, user interface development.",
+      technologies: ["JavaScript", "React", "Nextjs"],
+    },
+    {
       company: "DIRMIM Fianarantsoa",
       role: "Software Development Intern",
       period: "Aug - Nov 2024",
