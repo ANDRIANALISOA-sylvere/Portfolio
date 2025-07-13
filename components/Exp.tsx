@@ -10,6 +10,21 @@ export function Exp() {
 
   const experiences = [
     {
+      company: "TechZero",
+      role: "Founder",
+      period: "June 2025",
+      logo: "/images/techzero.jpeg",
+      description: "Founder of techzero, IT Startup",
+      technologies: [
+        "JavaScript",
+        "React",
+        "Nextjs",
+        "Nodejs",
+        "Expressjs",
+        "Nestjs",
+      ],
+    },
+    {
       company: "ITT-Madagascar",
       role: "Frontend Developer",
       period: "June - Now 2025",

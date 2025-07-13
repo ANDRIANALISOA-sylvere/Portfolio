@@ -1,8 +1,16 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ArrowDownToLine } from "lucide-react";
 
 export function Head() {
+  const handleClick = () => {
+    window.open(
+      "https://josephin-sylvere.vercel.app/CV.pdf",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
   return (
     <header className="py-12 px-8">
       <div className="max-w-6xl mx-auto">
@@ -60,26 +68,19 @@ export function Head() {
               transition={{ duration: 0.6, delay: 0.8 }}
             >
               <motion.button
-                onClick={() => {
-                  const projectSection = document.getElementById("projects");
-                  if (projectSection) {
-                    projectSection.scrollIntoView({
-                      behavior: "smooth",
-                      block: "start",
-                    });
-                  }
-                }}
-                className="bg-yellow-300 text-purple-800 cursor-pointer px-6 py-3 rounded-full font-semibold shadow-lg"
+                onClick={handleClick}
+                className="flex justify-between items-center gap-2 bg-yellow-300 text-purple-800 cursor-pointer px-6 py-3 rounded-full font-semibold shadow-lg"
                 whileHover={{
                   scale: 1.05,
-                  backgroundColor: "#facc15", // yellow-400
+                  backgroundColor: "#facc15",
                   boxShadow:
                     "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
                 }}
                 whileTap={{ scale: 0.95 }}
                 transition={{ type: "spring", stiffness: 400, damping: 10 }}
               >
-                See all of my projects
+                <span>Download my resume</span>
+                <ArrowDownToLine className="w-5 h-5"></ArrowDownToLine>
               </motion.button>
             </motion.div>
           </motion.div>

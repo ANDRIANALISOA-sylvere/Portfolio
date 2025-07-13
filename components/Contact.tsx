@@ -109,7 +109,7 @@ export function Contact() {
 
         {/* Footer */}
         <div className="text-center mt-8">
-          <p className="text-gray-500 text-sm">
+          <p className="text-gray-500 text-sm pb-8">
             © 2025 Joséphin Sylvère • Made with ❤️ from Madagascar 🇲🇬
           </p>
         </div>
