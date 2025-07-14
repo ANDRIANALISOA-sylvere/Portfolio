@@ -34,6 +34,15 @@ export function Exp() {
       technologies: ["JavaScript", "React", "Nextjs"],
     },
     {
+      company: "Freelance",
+      role: "Fontend Developer",
+      period: "June 2025",
+      logo: null,
+      description:
+        "Development of a website for a particular client.",
+      technologies: ["JavaScript", "Vue.js 3", "Pinia"],
+    },
+    {
       company: "DIRMIM Fianarantsoa",
       role: "Software Development Intern",
       period: "Aug - Nov 2024",
@@ -155,14 +164,24 @@ export function Exp() {
                     whileHover={{ scale: 1.05, rotate: 2 }}
                     transition={{ duration: 0.2 }}
                   >
-                    <div className="w-16 h-16 rounded-xl overflow-hidden shadow-md bg-white p-1">
-                      <Image
-                        src={exp.logo}
-                        alt={`Logo ${exp.company}`}
-                        width={60}
-                        height={60}
-                        className="w-full h-full object-contain rounded-lg"
-                      />
+                    <div className="w-16 h-16 border-2 rounded-xl overflow-hidden shadow-md bg-white p-1">
+                      {exp.logo ? (
+                        <Image
+                          src={exp.logo}
+                          alt={`Logo ${exp.company}`}
+                          width={60}
+                          height={60}
+                          className="w-full h-full object-contain rounded-lg"
+                        />
+                      ) : (
+                        <Image
+                          src={`https://api.dicebear.com/7.x/identicon/svg?seed=${exp.company}&radius=50&backgroundColor=ecfccb,a7f3d0,d1fae5`}
+                          alt={`Logo ${exp.company}`}
+                          width={60}
+                          height={60}
+                          className="w-full h-full object-contain rounded-lg"
+                        />
+                      )}
                     </div>
                   </motion.div>
 
