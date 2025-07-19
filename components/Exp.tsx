@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 
 export function Exp() {
@@ -63,7 +63,7 @@ export function Exp() {
   ];
 
   // Variants pour les animations
-  const containerVariants = {
+  const containerVariants : Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -74,7 +74,7 @@ export function Exp() {
     },
   };
 
-  const cardVariants = {
+  const cardVariants : Variants = {
     hidden: {
       opacity: 0,
       y: 30,
@@ -93,7 +93,7 @@ export function Exp() {
     },
   };
 
-  const techVariants = {
+  const techVariants : Variants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,

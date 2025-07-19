@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 
 export function About() {
@@ -8,7 +8,7 @@ export function About() {
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
   // Variants pour les animations
-  const containerVariants = {
+  const containerVariants : Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -19,7 +19,7 @@ export function About() {
     },
   };
 
-  const itemVariants = {
+  const itemVariants : Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
@@ -31,7 +31,7 @@ export function About() {
     },
   };
 
-  const badgeVariants = {
+  const badgeVariants : Variants = {
     hidden: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,

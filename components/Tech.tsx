@@ -1,5 +1,5 @@
 "use client";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, Variants } from "framer-motion";
 import Image from "next/image";
 import { useRef } from "react";
 
@@ -22,7 +22,7 @@ const databases = [
 export function Tech() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
-  const titleVariants = {
+  const titleVariants : Variants = {
     hidden: { opacity: 0, y: -30 },
     visible: {
       opacity: 1,

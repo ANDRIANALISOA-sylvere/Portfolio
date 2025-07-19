@@ -1,7 +1,7 @@
 "use client";
 import ProjectCard from "./ProjectCard";
 import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { motion, AnimatePresence, useInView, Variants } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import useMediaQuery from "./hooks/useMediaQuery";
 
@@ -177,7 +177,7 @@ export function Project() {
     return projects.slice(startIndex, startIndex + cardsPerPage);
   };
 
-  const titleVariants = {
+  const titleVariants: Variants = {
     hidden: { opacity: 0, y: -30 },
     visible: {
       opacity: 1,
@@ -189,7 +189,7 @@ export function Project() {
     },
   };
 
-  const buttonVariants = {
+  const buttonVariants: Variants = {
     hidden: { opacity: 0, scale: 0.5 },
     visible: {
       opacity: 1,
@@ -203,7 +203,7 @@ export function Project() {
     },
   };
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -214,7 +214,7 @@ export function Project() {
     },
   };
 
-  const indicatorVariants = {
+  const indicatorVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
