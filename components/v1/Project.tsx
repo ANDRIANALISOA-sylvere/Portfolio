@@ -3,7 +3,7 @@ import ProjectCard from "./ProjectCard";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence, useInView, Variants } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import useMediaQuery from "./hooks/useMediaQuery";
+import useMediaQuery from "../hooks/useMediaQuery";
 
 const projects = [
   {
