@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap");
 @import "tailwindcss";
 
 @custom-variant dark (&:is(.dark *));
@@ -80,7 +82,7 @@
   --mypurple: #9b5de5;
   --mypink: #f15bb5;
   --myblue: #00bbf9;
-  --myyellow:#fee440;
+  --myyellow: #fee440;
 }
 
 .dark {
@@ -118,7 +120,7 @@
   --mypurple: #9b5de5;
   --mypink: #f15bb5;
   --myblue: #00bbf9;
-  --myyellow:#fee440;
+  --myyellow: #fee440;
 }
 
 @layer base {
@@ -130,14 +132,22 @@
   }
 }
 
-.important {
-  @apply font-bold;
+body {
+  font-family: "Epilogue", sans-serif;
 }
 
-.text-secondaryDarker{
-  @apply opacity-25
+@font-face {
+  font-family: "Monument";
+  src: url("/fonts/MonumentExtended-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-.text-secondaryDarker:hover{
-  @apply opacity-100
+.space-grotesk {
+  font-family: "Space Grotesk", monospace;
+}
+
+.monument {
+  font-family: "Monument", sans-serif;
 }
