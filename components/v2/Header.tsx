@@ -29,7 +29,6 @@ export const Header = () => {
       <div className="absolute bottom-32 right-20 w-16 h-16 bg-gradient-to-br from-[#FAEB92] to-[#CC66DA] rounded-full opacity-30 animate-bounce"></div>
       <div className="absolute top-1/2 left-20 w-8 h-8 bg-[#CC66DA] rounded-full opacity-40 animate-ping"></div>
 
-
       {/* Node.js - Coin supérieur gauche */}
       <div className="absolute top-16 left-90 w-12 h-12 animate-float z-5 opacity-60 hover:opacity-90 transition-opacity">
         <div className="relative w-full h-full rounded-lg bg-white/20 backdrop-blur-sm shadow-lg border border-white/30 p-2 flex items-center justify-center">
@@ -96,7 +95,7 @@ export const Header = () => {
       </div>
 
       {/* TypeScript - Coin inférieur gauche */}
-      <div className="absolute bottom-35 left-90 w-12 h-12 animate-float z-5 opacity-60 hover:opacity-90 transition-opacity">
+      <div className="absolute bottom-35 left-100 w-12 h-12 animate-float z-5 opacity-60 hover:opacity-90 transition-opacity">
         <div className="relative w-full h-full rounded-lg bg-white/20 backdrop-blur-sm shadow-lg border border-white/30 p-2 flex items-center justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -134,25 +133,25 @@ export const Header = () => {
               d="M128.001 146.951C138.305 146.951 146.657 138.598 146.657 128.295C146.657 117.992 138.305 109.639 128.001 109.639C117.698 109.639 109.345 117.992 109.345 128.295C109.345 138.598 117.698 146.951 128.001 146.951Z"
             />
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               stroke="#00D8FF"
-              stroke-width="8.911"
+              strokeWidth="8.911"
               d="M128.002 90.3633C153.05 90.3633 176.319 93.9575 193.864 99.9976C215.003 107.275 228 118.306 228 128.295C228 138.704 214.226 150.423 191.525 157.944C174.363 163.63 151.779 166.598 128.002 166.598C103.624 166.598 80.5389 163.812 63.1834 157.881C41.2255 150.376 28 138.506 28 128.295C28 118.387 40.4096 107.441 61.2515 100.175C78.8617 94.0353 102.705 90.3633 127.998 90.3633H128.002Z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               stroke="#00D8FF"
-              stroke-width="8.911"
+              strokeWidth="8.911"
               d="M94.9811 109.438C107.495 87.7402 122.232 69.3783 136.23 57.1971C153.094 42.5206 169.144 36.7728 177.796 41.7623C186.813 46.9623 190.084 64.7496 185.259 88.1712C181.614 105.879 172.9 126.925 161.021 147.523C148.842 168.641 134.897 187.247 121.09 199.315C103.619 214.587 86.7284 220.114 77.8833 215.013C69.3003 210.067 66.0181 193.846 70.1356 172.161C73.6145 153.838 82.3451 131.349 94.977 109.438L94.9811 109.438Z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               stroke="#00D8FF"
-              stroke-width="8.911"
+              strokeWidth="8.911"
               d="M95.0123 147.578C82.4633 125.904 73.9194 103.962 70.3531 85.7517C66.0602 63.8109 69.0954 47.0355 77.7401 42.0315C86.7485 36.8163 103.792 42.866 121.674 58.7437C135.194 70.7479 149.077 88.8052 160.99 109.383C173.204 130.481 182.358 151.856 185.919 169.844C190.425 192.608 186.778 210.001 177.941 215.116C169.367 220.08 153.676 214.825 136.945 200.427C122.809 188.263 107.685 169.468 95.0123 147.578Z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             />
           </svg>
         </div>
@@ -175,49 +174,72 @@ export const Header = () => {
             />
             <path
               stroke="#fff"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="5.034"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="5.034"
               d="M146.07 48.5961C143.82 49.2993 182.38 34.4985 204.303 62.504C212.038 72.3969 203.073 112.827 181.606 144.678M128.098 153.784C127.536 173.795 128.239 193.946 130.194 198.784C132.148 203.621 136.346 213.198 150.767 210.118C162.812 207.538 167.199 202.538 169.098 191.506L173.548 156.231L128.098 153.784ZM110.816 53.4688C110.816 53.4688 45.5375 26.7782 48.575 87.4508C49.2219 100.36 67.0672 185.185 88.3719 159.521C96.1484 150.148 103.18 142.815 103.18 142.815L110.816 53.4688Z"
             />
             <path
               stroke="#fff"
-              stroke-linecap="round"
-              stroke-linejoin="bevel"
-              stroke-width="5.034"
+              strokeLinecap="round"
+              strokeLinejoin="bevel"
+              strokeWidth="5.034"
               d="M181.613 144.664C181.613 144.664 183.02 151.555 203.41 147.35C212.319 145.508 206.954 152.511 197.926 156.702C190.515 160.147 173.893 161.026 173.619 156.28C172.916 144.01 182.366 147.737 181.684 144.664C181.065 141.894 176.832 139.18 174.048 132.402C171.608 126.495 140.579 81.1438 182.654 87.8727C184.201 87.5563 171.685 47.7946 132.31 47.2181C92.9352 46.6415 94.1797 95.6282 94.1797 95.6282"
             />
             <path
               stroke="#fff"
-              stroke-linejoin="round"
-              stroke-width="5.034"
+              strokeLinejoin="round"
+              strokeWidth="5.034"
               d="M117.08 148.869C111.596 155 113.213 156.076 102.245 158.333C91.1492 160.618 97.6742 164.689 101.921 165.758C107.082 167.052 119.021 168.88 127.093 157.58C129.554 154.135 127.079 148.651 123.704 147.259C122.073 146.584 119.893 145.74 117.095 148.876L117.08 148.869Z"
             />
             <path
               stroke="#fff"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="5.034"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="5.034"
               d="M116.722 148.763C116.159 145.156 117.903 140.874 119.766 135.854C122.565 128.331 129.02 120.807 123.859 96.9219C120.013 79.1329 94.1867 93.2165 94.1867 95.6282C94.1867 98.0399 95.3539 107.863 93.7648 119.288C91.6766 134.209 103.257 146.823 116.588 145.536"
             />
             <path
               fill="#fff"
               stroke="#fff"
-              stroke-width="1.68"
+              strokeWidth="1.68"
               d="M110.577 95.2695C110.457 96.0922 112.088 98.293 114.205 98.5883C116.321 98.8836 118.128 97.168 118.248 96.3383C118.367 95.5086 116.736 94.6086 114.62 94.3133C112.503 94.018 110.682 94.4539 110.577 95.2695V95.2695Z"
             />
             <path
               fill="#fff"
               stroke="#fff"
-              stroke-width=".837"
+              strokeWidth=".837"
               d="M175.011 93.5891C175.123 94.4118 173.499 96.6125 171.383 96.9079C169.266 97.2032 167.445 95.4875 167.34 94.6579C167.234 93.8282 168.852 92.9282 170.968 92.6329C173.084 92.3375 174.905 92.7735 175.011 93.5891Z"
             />
             <path
               stroke="#fff"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="5.034"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="5.034"
               d="M182.577 87.8867C182.928 94.3555 181.184 98.75 180.959 105.634C180.636 115.632 185.727 127.079 178.055 138.54"
+            />
+          </svg>
+        </div>
+      </div>
+
+      {/* Javascript */}
+      <div className="absolute top-1/2 right-8 w-12 h-12 animate-float-delay-2 z-5 opacity-60 hover:opacity-90 transition-opacity">
+        <div className="relative w-full h-full rounded-lg bg-white/20 backdrop-blur-sm shadow-lg border border-white/30 p-2 flex items-center justify-center">
+          <svg
+            width="256"
+            height="256"
+            viewBox="0 0 256 256"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect width="256" height="256" rx="60" fill="#F0DB4F" />
+            <path
+              d="M67.3117 213.932L86.9027 202.076C90.6821 208.777 94.1202 214.447 102.367 214.447C110.272 214.447 115.256 211.355 115.256 199.327V117.529H139.314V199.667C139.314 224.584 124.708 235.926 103.398 235.926C84.1533 235.926 72.9819 225.959 67.3113 213.93"
+              fill="#323330"
+            />
+            <path
+              d="M152.381 211.354L171.969 200.013C177.126 208.434 183.828 214.62 195.684 214.62C205.653 214.62 212.009 209.636 212.009 202.762C212.009 194.514 205.479 191.592 194.481 186.782L188.468 184.203C171.111 176.815 159.597 167.535 159.597 147.945C159.597 129.901 173.345 116.153 194.826 116.153C210.12 116.153 221.118 121.481 229.022 135.4L210.291 147.429C206.166 140.04 201.7 137.119 194.826 137.119C187.78 137.119 183.312 141.587 183.312 147.429C183.312 154.646 187.78 157.568 198.09 162.037L204.104 164.614C224.553 173.379 236.067 182.313 236.067 202.418C236.067 224.072 219.055 235.928 196.2 235.928C173.861 235.928 159.426 225.274 152.381 211.354"
+              fill="#323330"
             />
           </svg>
         </div>
@@ -265,7 +287,7 @@ export const Header = () => {
             </p>
 
             {/* Boutons d'Action */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-5 mb-8">
               {/* Bouton Download CV - Style classique */}
               <button className="group relative px-8 py-4 flex items-center gap-3 bg-[#CC66DA] text-white rounded-full font-semibold hover:bg-purple-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer">
                 <span className="relative z-10">Download CV</span>
