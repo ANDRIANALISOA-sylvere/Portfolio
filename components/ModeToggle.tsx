@@ -16,7 +16,7 @@ export function ModeToggle() {
     <Button
       variant="outline"
       size="icon"
-      className="cursor-pointer"
+      className="cursor-pointer z-50 fixed top-4 right-4 transition-colors duration-300 hover:bg-gray-200 dark:hover:bg-gray-800"
       onClick={toggleTheme}
     >
       <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />

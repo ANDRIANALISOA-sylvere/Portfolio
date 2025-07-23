@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/next-script-for-ga */
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { ThemeProvider } from "../components/theme-provider";
 
 // SEO metadata with enhanced properties
 export const metadata: Metadata = {
@@ -80,7 +81,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -101,7 +102,16 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>{children}</body>
+      <body className="relative">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
