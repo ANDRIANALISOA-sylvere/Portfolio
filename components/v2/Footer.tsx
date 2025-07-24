@@ -15,8 +15,8 @@ export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: "About", href: "#about" },
     { name: "Services", href: "#services" },
+    { name: "Techs Skills", href: "#services" },
     { name: "Projects", href: "#projects" },
     { name: "Experience", href: "#experience" },
     { name: "Contact", href: "#contact" },
@@ -61,9 +61,11 @@ export const Footer = () => {
           {/* Brand section */}
           <div className="lg:col-span-2 space-y-6">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white space-grotesk mb-2">
-                A. Joséphin Sylvère
-              </h3>
+              <div className="w-24 h-10 mb-3 bg-gradient-to-r from-[#CC66DA] to-[#FAEB92] rounded-full flex items-center justify-center">
+                <span className="text-black font-bold text-lg monument">
+                  JS
+                </span>
+              </div>
               <p className="text-[#CC66DA] dark:text-[#FAEB92] font-medium">
                 Backend Developer
               </p>
@@ -200,10 +202,6 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-
-      {/* Floating elements */}
-      <div className="absolute bottom-10 left-1/4 w-2 h-2 bg-[#CC66DA] rounded-full opacity-20 animate-ping"></div>
-      <div className="absolute top-10 right-1/3 w-1 h-1 bg-[#FAEB92] rounded-full opacity-30"></div>
     </footer>
   );
 };

@@ -1,33 +1,69 @@
 "use client";
 import React, { useState } from "react";
 import { Title } from "../ui/Title";
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter, CheckCircle } from "lucide-react";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Github,
+  Linkedin,
+  Twitter,
+  CheckCircle,
+  AlertCircle,
+} from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     subject: "",
-    message: ""
+    message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Simulate form submission
-    console.log("Form submitted:", formData);
-    setIsSubmitted(true);
-    setTimeout(() => {
-      setIsSubmitted(false);
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      await emailjs.send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+        {
+          name: formData.name,
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      setIsSubmitted(true);
       setFormData({ name: "", email: "", subject: "", message: "" });
-    }, 3000);
+
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+    } catch (err) {
+      console.error("Failed to send email:", err);
+      setError("Failed to send message. Please try again later.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const contactInfo = [
@@ -35,63 +71,60 @@ export const Contact = () => {
       icon: <Mail size={24} />,
       label: "Email",
       value: "josephinsylvere@gmail.com",
-      link: "mailto:josephinsylvere@gmail.com"
+      link: "mailto:josephinsylvere@gmail.com",
     },
     {
       icon: <Phone size={24} />,
       label: "Phone",
       value: "+261 34 39 478 44",
-      link: "tel:+261343947844"
+      link: "tel:+261343947844",
     },
     {
       icon: <MapPin size={24} />,
       label: "Location",
       value: "Fianarantsoa, Madagascar",
-      link: null
-    }
+      link: null,
+    },
   ];
 
   const socialLinks = [
     {
       icon: <Github size={20} />,
       label: "GitHub",
-      url: "https://github.com/ANDRIANALISOA-sylvere"
+      url: "https://github.com/ANDRIANALISOA-sylvere",
     },
     {
       icon: <Linkedin size={20} />,
       label: "LinkedIn",
-      url: "https://linkedin.com/in/josephin-sylvere"
+      url: "https://linkedin.com/in/josephin-sylvere",
     },
     {
       icon: <Twitter size={20} />,
       label: "Twitter",
-      url: "https://x.com/sylverejosephin"
-    }
+      url: "https://x.com/sylverejosephin",
+    },
   ];
 
   return (
-    <div className="px-2 mt-28 mb-20 relative">
+    <div className="px-2 mt-28 mb-20 relative" id="contact">
       {/* Background decorative elements */}
       <div className="absolute top-10 left-10 w-40 h-40 bg-gradient-to-br from-[#CC66DA] to-[#FAEB92] rounded-full opacity-5 dark:opacity-10 blur-3xl"></div>
       <div className="absolute bottom-20 right-10 w-32 h-32 bg-[#FAEB92] rounded-full opacity-10 dark:opacity-20 blur-2xl"></div>
-      <div className="absolute top-1/3 right-1/5 w-4 h-4 bg-[#CC66DA] rounded-full opacity-20 animate-pulse"></div>
-      <div className="absolute bottom-1/4 left-1/4 w-2 h-2 bg-[#FAEB92] rounded-full opacity-30"></div>
 
       <Title title="GET IN TOUCH" />
 
       {/* Two column layout */}
       <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
-        
         {/* Left column - Contact Info */}
         <div className="space-y-12">
-          
           {/* Intro text */}
           <div className="space-y-4">
             <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 dark:text-white space-grotesk">
               Let&apos;s work together
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
-              I&apos;m always open to discussing new opportunities, creative projects, or just having a chat about technology and innovation.
+              I&apos;m always open to discussing new opportunities, creative
+              projects, or just having a chat about technology and innovation.
             </p>
           </div>
 
@@ -111,7 +144,7 @@ export const Contact = () => {
                       {info.label}
                     </p>
                     {info.link ? (
-                      <a 
+                      <a
                         href={info.link}
                         className="text-gray-900 dark:text-white font-medium hover:text-[#CC66DA] dark:hover:text-[#FAEB92] transition-colors duration-300"
                       >
@@ -157,7 +190,8 @@ export const Contact = () => {
               Send me a message
             </h3>
             <p className="text-gray-600 dark:text-gray-300">
-              Fill out the form below and I&apos;ll get back to you as soon as possible.
+              Fill out the form below and I&apos;ll get back to you as soon as
+              possible.
             </p>
           </div>
 
@@ -169,12 +203,22 @@ export const Contact = () => {
             </div>
           )}
 
+          {error && (
+            <div className="flex items-center gap-3 p-4 bg-red-50 dark:bg-red-900/20 border-l-4 border-red-400 text-red-700 dark:text-red-300">
+              <AlertCircle size={20} />
+              <span>{error}</span>
+            </div>
+          )}
+
           {/* Contact form */}
           <form onSubmit={handleSubmit} className="space-y-6">
             {/* Name and Email row */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label htmlFor="name" className="text-sm font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wide">
+                <label
+                  htmlFor="name"
+                  className="text-sm font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wide"
+                >
                   Full Name *
                 </label>
                 <input
@@ -189,7 +233,10 @@ export const Contact = () => {
                 />
               </div>
               <div className="space-y-2">
-                <label htmlFor="email" className="text-sm font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wide">
+                <label
+                  htmlFor="email"
+                  className="text-sm font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wide"
+                >
                   Email Address *
                 </label>
                 <input
@@ -207,7 +254,10 @@ export const Contact = () => {
 
             {/* Subject */}
             <div className="space-y-2">
-              <label htmlFor="subject" className="text-sm font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wide">
+              <label
+                htmlFor="subject"
+                className="text-sm font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wide"
+              >
                 Subject *
               </label>
               <input
@@ -224,7 +274,10 @@ export const Contact = () => {
 
             {/* Message */}
             <div className="space-y-2">
-              <label htmlFor="message" className="text-sm font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wide">
+              <label
+                htmlFor="message"
+                className="text-sm font-medium text-gray-700 dark:text-gray-300 uppercase tracking-wide"
+              >
                 Message *
               </label>
               <textarea
@@ -243,11 +296,20 @@ export const Contact = () => {
             <div className="pt-4">
               <button
                 type="submit"
-                disabled={isSubmitted}
+                disabled={isSubmitted || isLoading}
                 className="cursor-pointer group flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-[#CC66DA] to-[#FAEB92] text-black font-medium rounded-full hover:shadow-lg hover:shadow-[#CC66DA]/25 transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span>Send Message</span>
-                <Send size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+                {isLoading ? (
+                  <span>Envoi en cours...</span>
+                ) : (
+                  <>
+                    <span>Send Message</span>
+                    <Send
+                      size={18}
+                      className="group-hover:translate-x-1 transition-transform duration-300"
+                    />
+                  </>
+                )}
               </button>
             </div>
           </form>

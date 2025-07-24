@@ -4,6 +4,16 @@ import { ArrowRight, Mail, Phone } from "lucide-react";
 import { Button } from "../ui/button";
 
 export const CTA = () => {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <section className="relative md:py-8 lg:py-12 overflow-hidden">
       {/* Background gradient */}
@@ -27,6 +37,7 @@ export const CTA = () => {
           <div className="mb-10">
             <Button
               size="lg"
+              onClick={() => scrollToSection("contact")}
               className="cursor-pointer group bg-gradient-to-r from-[#CC66DA] to-[#FAEB92] text-black shadow-lg hover:shadow-xl transition-all"
             >
               Let&apos;s discuss your project

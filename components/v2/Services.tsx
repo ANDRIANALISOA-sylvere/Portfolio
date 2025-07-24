@@ -32,7 +32,7 @@ export const Services = () => {
   ];
 
   return (
-    <div className="px-3 mt-28 mb-20 relative">
+    <div className="px-3 mt-28 mb-20 relative" id="services">
       {/* Background decorative elements */}
       <div className="absolute top-10 left-10 w-40 h-40 bg-gradient-to-br from-[#CC66DA] to-[#FAEB92] rounded-full opacity-5 dark:opacity-10 blur-3xl"></div>
       <div className="absolute bottom-20 right-10 w-24 h-24 bg-[#FAEB92] rounded-full opacity-10 dark:opacity-20 blur-3xl"></div>

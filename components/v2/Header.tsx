@@ -12,7 +12,7 @@ import { NodeIcon } from "./svg/Node";
 
 export const Header = () => {
   return (
-    <header className="relative w-full min-h-screen px-16 overflow-hidden transition-colors duration-300">
+    <header className="relative w-full min-h-screen px-16 overflow-hidden mt-8 transition-colors duration-300">
       {/* Éléments décoratifs flottants avec effet de flou */}
       <div className="absolute top-20 left-10 w-50 h-50 bg-gradient-to-br from-[#CC66DA] to-[#FAEB92] rounded-full opacity-20 dark:opacity-30 blur-2xl"></div>
       <div className="absolute bottom-32 right-20 w-16 h-16 bg-gradient-to-br from-[#FAEB92] to-[#CC66DA] rounded-full opacity-30 dark:opacity-40 blur-2xl"></div>
@@ -65,7 +65,7 @@ export const Header = () => {
           {/* Section Texte */}
           <div className="flex-1 text-center lg:text-left">
             {/* Badge d'introduction amélioré */}
-            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-md px-6 py-3 rounded-2xl text-sm font-medium shadow-xl border border-white/20 dark:border-gray-600/20 mb-6 animate-fade-in hover:shadow-2xl transition-all duration-300">
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-white/90 to-gray-50/90 dark:from-gray-800/90 dark:to-gray-700/90 backdrop-blur-md px-6 py-3 rounded-2xl text-sm font-medium shadow-xl border border-white/20 dark:border-gray-600/20 mb-3 animate-fade-in hover:shadow-2xl transition-all duration-300">
               <div className="w-3 h-3 bg-gradient-to-r from-[#CC66DA] to-[#FAEB92] rounded-full animate-pulse"></div>
               <span className="text-gray-700 dark:text-gray-300">
                 Hello there! I&apos;m
@@ -107,21 +107,21 @@ export const Header = () => {
 
             {/* Boutons d'Action */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-5 mb-8">
-              {/* Bouton Download CV - Style classique */}
-              <button className="group relative px-8 py-4 flex items-center gap-3 bg-[#CC66DA] text-white rounded-full font-semibold hover:bg-purple-600 dark:hover:bg-purple-500 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl cursor-pointer">
+              {/* Bouton Download CV - Style gradient animé */}
+              <button className="group relative px-8 py-4 flex items-center gap-3 bg-gradient-to-r from-[#CC66DA] to-[#FAEB92] text-black font-medium rounded-full hover:shadow-sm hover:shadow-[#CC66DA]/25 transform hover:scale-105 transition-all duration-300 cursor-pointer">
                 <span className="relative z-10">Download CV</span>
                 <Download
                   size={18}
-                  className="transition-transform group-hover:translate-y-[-2px]"
+                  className="transition-transform group-hover:translate-y-[-2px] duration-300"
                 />
               </button>
 
-              {/* Bouton Contact Me - Style outline */}
-              <button className="group relative px-8 py-4 flex items-center gap-3 bg-transparent border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-full font-semibold hover:border-[#CC66DA] hover:text-[#CC66DA] dark:hover:border-[#CC66DA] dark:hover:text-[#CC66DA] transition-all duration-300 transform hover:scale-105 shadow-md hover:shadow-lg cursor-pointer">
+              {/* Bouton Contact Me */}
+              <button className="group relative px-8 py-4 flex items-center gap-3 bg-transparent border-2 border-[#CC66DA] text-[#CC66DA] dark:text-[#CC66DA] rounded-full font-medium hover:bg-[#CC66DA]/10 transition-all duration-300 transform hover:scale-105 hover:shadow-sm hover:shadow-[#CC66DA]/25 cursor-pointer">
                 <span className="relative z-10">Contact Me</span>
                 <Mail
                   size={18}
-                  className="transition-transform group-hover:translate-x-1"
+                  className="transition-transform group-hover:translate-x-1 duration-300"
                 />
               </button>
             </div>

@@ -76,11 +76,10 @@ export const Xp = () => {
   ];
 
   return (
-    <div className="px-4 mt-28 mb-20 relative">
+    <div className="px-4 mt-28 mb-20 relative" id="experience">
       {/* Background decorative elements */}
       <div className="absolute top-10 right-10 w-40 h-40 bg-gradient-to-br from-[#FAEB92] to-[#CC66DA] rounded-full opacity-5 dark:opacity-10 blur-3xl"></div>
       <div className="absolute bottom-20 left-10 w-32 h-32 bg-[#CC66DA] rounded-full opacity-10 dark:opacity-20 blur-2xl"></div>
-      <div className="absolute top-1/3 right-1/4 w-3 h-3 bg-[#FAEB92] rounded-full opacity-40 animate-pulse"></div>
       <div className="absolute bottom-1/3 left-1/5 w-2 h-2 bg-[#CC66DA] rounded-full opacity-30"></div>
 
       <Title title="EXPERIENCE" />

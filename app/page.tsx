@@ -6,9 +6,11 @@ import { Xp } from "../components/v2/Xp";
 import { Contact } from "../components/v2/Contact";
 import { Footer } from "../components/v2/Footer";
 import { CTA } from '../components/v2/CTA';
+import { Nav } from '../components/v2/Nav';
 export default function Home() {
   return (
     <div className="min-h-screen">
+      <Nav></Nav>
       <Header></Header>
       <Services></Services>
       <TechSkills></TechSkills>
