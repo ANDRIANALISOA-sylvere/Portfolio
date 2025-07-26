@@ -12,12 +12,12 @@ export const Xp = () => {
       location: "Remote",
       type: "Full-time",
       description:
-        "Leading strategic direction and technical vision for a fintech startup. Overseeing product development, team management, and business operations while establishing company culture and growth strategies.",
+        "Co-founder of a fintech startup in the launch phase. Involved in defining the vision, structuring the team, and preparing the first projects.",
       achievements: [
-        "Founded and scaled fintech platform to 100k+ active users",
-        "Led cross-functional team of 8+ developers and designers",
-        "Secured initial funding and established strategic partnerships",
-        "Implemented agile methodologies increasing delivery speed by 50%",
+        "Created the legal and organizational structure of the startup",
+        "Set up technical foundations and selected technologies",
+        "Developed initial internal prototypes",
+        "Prospected potential clients and partners",
       ],
       technologies: null,
       isActive: true,
@@ -31,9 +31,9 @@ export const Xp = () => {
       description:
         "Specialized in transforming UI/UX designs into responsive web applications and integrating frontend components with backend APIs. Focus on pixel-perfect implementation and optimal user experience.",
       achievements: [
-        "Converted 20+ Figma/Adobe XD mockups into responsive React components",
-        "Integrated 10+ RESTful APIs with error handling and loading states",
-        "Improved website performance by 35% through code optimization",
+        "Converted Figma mockups into responsive React components",
+        "Integrated RESTful APIs with error handling and loading states",
+        "Improved website performance",
         "Collaborated with designers to ensure design consistency across platforms",
       ],
       technologies: ["React", "Next.js"],
@@ -48,10 +48,9 @@ export const Xp = () => {
       description:
         "Developed a comprehensive case management application with real-time tracking capabilities. Integrated Telegram Bot API for automated notifications and case status updates, enabling efficient document workflow management.",
       achievements: [
-        "Built complete case tracking system managing 500+ documents monthly",
+        "Built complete case tracking system managing documents",
         "Implemented Telegram bot integration for real-time notifications",
-        "Designed intuitive dashboard with search and filtering capabilities",
-        "Reduced case processing time by 60% through workflow automation",
+        "Designed intuitive dashboard with search and filtering capabilities"
       ],
       technologies: ["React", "Laravel", "Inertia", "MySQL"],
       isActive: false,
@@ -65,7 +64,7 @@ export const Xp = () => {
       description:
         "Developed a digital archive management system for document storage, organization, and retrieval. Implemented secure file handling, search functionality, and user access controls for institutional document management.",
       achievements: [
-        "Created archive system managing 10,000+ digital documents",
+        "Created archive system managing digital documents",
         "Implemented advanced search with metadata filtering and categorization",
         "Built secure file upload/download system with role-based access",
         "Delivered user training and documentation for system adoption",

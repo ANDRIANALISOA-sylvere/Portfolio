@@ -11,6 +11,13 @@ import { NestIcon } from "./svg/Nest";
 import { NodeIcon } from "./svg/Node";
 
 export const Header = () => {
+  const handleClick = () => {
+      window.open(
+        "https://josephin-sylvere.vercel.app/CV.pdf",
+        "_blank",
+        "noopener,noreferrer"
+      );
+    };
   return (
     <header className="relative w-full min-h-screen px-16 overflow-hidden mt-8 transition-colors duration-300">
       {/* Éléments décoratifs flottants avec effet de flou */}
@@ -108,7 +115,7 @@ export const Header = () => {
             {/* Boutons d'Action */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-5 mb-8">
               {/* Bouton Download CV - Style gradient animé */}
-              <button className="group relative px-8 py-4 flex items-center gap-3 bg-gradient-to-r from-[#CC66DA] to-[#FAEB92] text-black font-medium rounded-full hover:shadow-sm hover:shadow-[#CC66DA]/25 transform hover:scale-105 transition-all duration-300 cursor-pointer">
+              <button onClick={handleClick} className="group relative px-8 py-4 flex items-center gap-3 bg-gradient-to-r from-[#CC66DA] to-[#FAEB92] text-black font-medium rounded-full hover:shadow-sm hover:shadow-[#CC66DA]/25 transform hover:scale-105 transition-all duration-300 cursor-pointer">
                 <span className="relative z-10">Download CV</span>
                 <Download
                   size={18}
