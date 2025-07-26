@@ -10,7 +10,7 @@ export const Xp = () => {
       company: "TechZero",
       position: "Co-Founder",
       location: "Remote",
-      type: "Full-time",
+      type: "Part-time",
       description:
         "Co-founder of a fintech startup in the launch phase. Involved in defining the vision, structuring the team, and preparing the first projects.",
       achievements: [
