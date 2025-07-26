@@ -42,20 +42,20 @@ export const TechSkills = () => {
     <section className="px-2 mt-28 relative overflow-hidden" id="skills">
       <Title title="TECH SKILLS" />
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8 mt-12">
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12">
         {technologies.map((tech, index) => (
           <div
             key={`tech-${index}`}
-            className="flex flex-col items-center gap-3 hover:scale-110 transition-transform duration-300"
+            className="flex flex-col items-center gap-2 sm:gap-3 hover:scale-110 transition-transform duration-300"
           >
             <div
               role="img"
               aria-label={tech.name}
-              className="w-16 h-16 flex items-center justify-center"
+              className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center"
             >
               {tech.icon}
             </div>
-            <span className="text-gray-900 dark:text-gray-100 font-medium">
+            <span className="text-gray-900 dark:text-gray-100 font-medium text-sm sm:text-base">
               {tech.name}
             </span>
           </div>

@@ -11,11 +11,11 @@ export const Title = ({ title }: TitleProps) => {
       {/* Conteneur principal du titre */}
       <div className="relative z-10 text-left">
         {/* Titre principal */}
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold monument leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold monument leading-tight">
           <span className="bg-gradient-to-r from-[#CC66DA] via-purple-600 to-[#FAEB92] bg-clip-text text-transparent animate-gradient relative">
             {title}
             {/* Ligne décorative sous le titre */}
-            <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-[#CC66DA] to-[#FAEB92] rounded-full opacity-60"></div>
+            <div className="absolute -bottom-1 sm:-bottom-2 left-1/2 transform -translate-x-1/2 w-24 sm:w-32 h-0.5 sm:h-1 bg-gradient-to-r from-[#CC66DA] to-[#FAEB92] rounded-full opacity-60"></div>
           </span>
         </h1>
       </div>

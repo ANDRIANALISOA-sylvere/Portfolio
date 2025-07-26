@@ -75,95 +75,95 @@ export const Xp = () => {
   ];
 
   return (
-    <div className="px-4 mt-28 mb-20 relative" id="experience">
-      {/* Background decorative elements */}
-      <div className="absolute top-10 right-10 w-40 h-40 bg-gradient-to-br from-[#FAEB92] to-[#CC66DA] rounded-full opacity-5 dark:opacity-10 blur-3xl"></div>
-      <div className="absolute bottom-20 left-10 w-32 h-32 bg-[#CC66DA] rounded-full opacity-10 dark:opacity-20 blur-2xl"></div>
+    <div className="px-4 sm:px-6 mt-20 mb-16 relative" id="experience">
+      {/* Background decorative elements - reduced size */}
+      <div className="absolute top-10 right-4 sm:right-10 w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-[#FAEB92] to-[#CC66DA] rounded-full opacity-5 dark:opacity-10 blur-2xl sm:blur-3xl"></div>
+      <div className="absolute bottom-20 left-4 sm:left-10 w-24 h-24 sm:w-32 sm:h-32 bg-[#CC66DA] rounded-full opacity-10 dark:opacity-20 blur-xl sm:blur-2xl"></div>
       <div className="absolute bottom-1/3 left-1/5 w-2 h-2 bg-[#CC66DA] rounded-full opacity-30"></div>
 
       <Title title="EXPERIENCE" />
 
-      {/* Two column grid */}
-      <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
+      {/* Responsive grid */}
+      <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
         {experiences.map((exp, index) => (
           <div key={index} className="group">
-            {/* Period and status */}
-            <div className="flex items-center gap-3 mb-4">
-              <div className="flex items-center gap-2 text-[#CC66DA] dark:text-[#FAEB92]">
-                <Calendar size={16} />
-                <span className="text-sm font-medium space-grotesk">
+            {/* Period and status - compact layout */}
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3">
+              <div className="flex items-center gap-1 sm:gap-2 text-[#CC66DA] dark:text-[#FAEB92]">
+                <Calendar size={14} className="flex-shrink-0" />
+                <span className="text-xs sm:text-sm font-medium space-grotesk">
                   {exp.period}
                 </span>
               </div>
               {exp.isActive && (
-                <span className="px-2 py-1 text-xs bg-[#CC66DA]/10 dark:bg-[#FAEB92]/10 text-[#CC66DA] dark:text-[#FAEB92] rounded-full border border-[#CC66DA]/20 dark:border-[#FAEB92]/20">
+                <span className="px-2 py-0.5 text-xs bg-[#CC66DA]/10 dark:bg-[#FAEB92]/10 text-[#CC66DA] dark:text-[#FAEB92] rounded-full border border-[#CC66DA]/20 dark:border-[#FAEB92]/20">
                   Current
                 </span>
               )}
             </div>
 
-            {/* Position and Company */}
-            <div className="mb-4">
-              <h3 className="text-xl lg:text-2xl font-bold text-gray-900 dark:text-white space-grotesk group-hover:text-[#CC66DA] dark:group-hover:text-[#FAEB92] transition-colors duration-300 mb-1">
+            {/* Position and Company - adjusted sizes */}
+            <div className="mb-3 sm:mb-4">
+              <h3 className="text-lg sm:text-xl lg:text-xl font-bold text-gray-900 dark:text-white space-grotesk group-hover:text-[#CC66DA] dark:group-hover:text-[#FAEB92] transition-colors duration-300 mb-1">
                 {exp.position}
               </h3>
-              <div className="flex items-center gap-2">
-                <span className="text-lg text-gray-700 dark:text-gray-300 font-medium">
+              <div className="flex items-center gap-1 sm:gap-2">
+                <span className="text-base sm:text-lg text-gray-700 dark:text-gray-300 font-medium">
                   {exp.company}
                 </span>
                 <ExternalLink
-                  size={16}
-                  className="text-gray-400 group-hover:text-[#CC66DA] dark:group-hover:text-[#FAEB92] transition-colors duration-300"
+                  size={14}
+                  className="text-gray-400 group-hover:text-[#CC66DA] dark:group-hover:text-[#FAEB92] transition-colors duration-300 flex-shrink-0"
                 />
               </div>
             </div>
 
-            {/* Location and type */}
-            <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-4">
+            {/* Location and type - compact */}
+            <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-3 sm:mb-4">
               <div className="flex items-center gap-1">
-                <MapPin size={14} />
+                <MapPin size={12} className="flex-shrink-0" />
                 <span>{exp.location}</span>
               </div>
               <div className="flex items-center gap-1">
-                <Briefcase size={14} />
+                <Briefcase size={12} className="flex-shrink-0" />
                 <span>{exp.type}</span>
               </div>
             </div>
 
-            {/* Description */}
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-justify mb-6">
+            {/* Description - adjusted text size */}
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed text-justify mb-4 sm:mb-6">
               {exp.description}
             </p>
 
-            {/* Achievements */}
-            <div className="mb-6">
-              <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-3 uppercase tracking-wide">
+            {/* Achievements - compact */}
+            <div className="mb-4 sm:mb-6">
+              <h4 className="text-xs sm:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2 sm:mb-3 uppercase tracking-wide">
                 Key Achievements
               </h4>
-              <ul className="space-y-2">
+              <ul className="space-y-1 sm:space-y-2">
                 {exp.achievements.map((achievement, achIndex) => (
                   <li
                     key={achIndex}
-                    className="flex items-start gap-2 text-sm text-gray-600 dark:text-gray-300"
+                    className="flex items-start gap-1 sm:gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-300"
                   >
-                    <div className="w-1.5 h-1.5 bg-[#CC66DA] dark:bg-[#FAEB92] rounded-full mt-2 flex-shrink-0"></div>
+                    <div className="w-1.5 h-1.5 bg-[#CC66DA] dark:bg-[#FAEB92] rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
                     <span>{achievement}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Technologies */}
+            {/* Technologies - adjusted */}
             {exp.technologies && exp.technologies.length > 0 && (
               <div>
-                <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-3 uppercase tracking-wide">
+                <h4 className="text-xs sm:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2 sm:mb-3 uppercase tracking-wide">
                   Technologies Used
                 </h4>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1 sm:gap-2">
                   {exp.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-3 py-1 text-xs bg-gray-100/80 dark:bg-gray-700/80 text-gray-700 dark:text-gray-300 rounded-full border border-gray-200/50 dark:border-gray-600/50 group-hover:bg-[#CC66DA]/10 dark:group-hover:bg-[#FAEB92]/10 group-hover:border-[#CC66DA]/30 dark:group-hover:border-[#FAEB92]/30 transition-all duration-300"
+                      className="px-2 sm:px-3 py-0.5 sm:py-1 text-xs bg-gray-100/80 dark:bg-gray-700/80 text-gray-700 dark:text-gray-300 rounded-full border border-gray-200/50 dark:border-gray-600/50 group-hover:bg-[#CC66DA]/10 dark:group-hover:bg-[#FAEB92]/10 group-hover:border-[#CC66DA]/30 dark:group-hover:border-[#FAEB92]/30 transition-all duration-300"
                     >
                       {tech}
                     </span>
@@ -172,20 +172,20 @@ export const Xp = () => {
               </div>
             )}
 
-            {/* Separator line for visual separation */}
-            <div className="mt-8 w-full h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-700 to-transparent lg:hidden"></div>
+            {/* Separator line - mobile only */}
+            <div className="mt-6 sm:mt-8 w-full h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-gray-700 to-transparent lg:hidden"></div>
           </div>
         ))}
       </div>
 
-      {/* Bottom decoration */}
-      <div className="mt-16 flex justify-center">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-px bg-gradient-to-r from-transparent to-[#CC66DA]/50"></div>
-          <div className="w-2 h-2 bg-[#CC66DA] rounded-full"></div>
-          <div className="w-16 h-px bg-gradient-to-r from-[#CC66DA]/50 via-[#FAEB92]/50 to-[#CC66DA]/50"></div>
-          <div className="w-2 h-2 bg-[#FAEB92] rounded-full"></div>
-          <div className="w-8 h-px bg-gradient-to-r from-[#FAEB92]/50 to-transparent"></div>
+      {/* Bottom decoration - simplified */}
+      <div className="mt-12 sm:mt-16 flex justify-center">
+        <div className="flex items-center gap-1 sm:gap-2">
+          <div className="w-6 sm:w-8 h-px bg-gradient-to-r from-transparent to-[#CC66DA]/50"></div>
+          <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-[#CC66DA] rounded-full"></div>
+          <div className="w-12 sm:w-16 h-px bg-gradient-to-r from-[#CC66DA]/50 via-[#FAEB92]/50 to-[#CC66DA]/50"></div>
+          <div className="w-1.5 sm:w-2 h-1.5 sm:h-2 bg-[#FAEB92] rounded-full"></div>
+          <div className="w-6 sm:w-8 h-px bg-gradient-to-r from-[#FAEB92]/50 to-transparent"></div>
         </div>
       </div>
     </div>
