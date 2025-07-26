@@ -26,7 +26,7 @@ export const Xp = () => {
       period: "June 2025 - Present",
       company: "ITT Madagascar",
       position: "Frontend Developer",
-      location: "Fianarantsoa, Madagascar",
+      location: "Remote",
       type: "Part-time",
       description:
         "Specialized in transforming UI/UX designs into responsive web applications and integrating frontend components with backend APIs. Focus on pixel-perfect implementation and optimal user experience.",
