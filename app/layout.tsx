@@ -2,6 +2,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider";
+import { Analytics } from "@vercel/analytics/next";
 
 // SEO metadata with enhanced properties
 export const metadata: Metadata = {
@@ -10,7 +11,8 @@ export const metadata: Metadata = {
     default: "Joséphin Sylvère | Portfolio",
     template: "%s | Joséphin Sylvère",
   },
-  description: "Backend Developer expert in Node.js, Express, NestJS and database systems. Crafting scalable server architectures and high-performance APIs.",
+  description:
+    "Backend Developer expert in Node.js, Express, NestJS and database systems. Crafting scalable server architectures and high-performance APIs.",
   keywords: ["developer", "portfolio", "nodejs", "web development"],
   authors: [
     { name: "Joséphin Sylvère", url: "https://josephinsylvere.vercel.app" },
@@ -45,7 +47,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://josephin-sylvere.vercel.app",
     title: "Joséphin Sylvère | Backend Developer",
-    description: "Backend Developer expert in Node.js, Express, NestJS and database systems. Crafting scalable server architectures and high-performance APIs.",
+    description:
+      "Backend Developer expert in Node.js, Express, NestJS and database systems. Crafting scalable server architectures and high-performance APIs.",
     siteName: "Joséphin Sylvère Portfolio",
     images: [
       {
@@ -59,7 +62,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Joséphin Sylvère | Portfolio",
-    description: "Backend Developer expert in Node.js, Express, NestJS and database systems. Crafting scalable server architectures and high-performance APIs.",
+    description:
+      "Backend Developer expert in Node.js, Express, NestJS and database systems. Crafting scalable server architectures and high-performance APIs.",
     creator: "@sylverejosephin",
     images: ["https://josephin-sylvere.vercel.app/images/mon-avatar.png"],
   },
@@ -110,6 +114,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
