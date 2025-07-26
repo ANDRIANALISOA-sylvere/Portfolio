@@ -12,12 +12,22 @@ import { NodeIcon } from "./svg/Node";
 
 export const Header = () => {
   const handleClick = () => {
-      window.open(
-        "https://josephin-sylvere.vercel.app/CV.pdf",
-        "_blank",
-        "noopener,noreferrer"
-      );
-    };
+    window.open(
+      "https://josephin-sylvere.vercel.app/CV.pdf",
+      "_blank",
+      "noopener,noreferrer"
+    );
+  };
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offsetTop = element.offsetTop - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
   return (
     <header className="relative w-full min-h-screen px-4 sm:px-8 lg:px-16 overflow-x-hidden overflow-y-hidden mt-4 sm:mt-6 lg:mt-8 transition-colors duration-300">
       {/* Éléments décoratifs flottants avec effet de flou - Réduits sur mobile */}
@@ -116,7 +126,10 @@ export const Header = () => {
             {/* Boutons d'Action - Responsive */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start mt-4 sm:mt-5 mb-6 sm:mb-8 px-4 sm:px-0">
               {/* Bouton Download CV - Style gradient animé */}
-              <button onClick={handleClick} className="group relative px-6 sm:px-8 py-3 sm:py-4 flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-[#CC66DA] to-[#FAEB92] text-black font-medium rounded-full hover:shadow-sm hover:shadow-[#CC66DA]/25 transform hover:scale-105 transition-all duration-300 cursor-pointer text-sm sm:text-base">
+              <button
+                onClick={handleClick}
+                className="group relative px-6 sm:px-8 py-3 sm:py-4 flex items-center justify-center gap-2 sm:gap-3 bg-gradient-to-r from-[#CC66DA] to-[#FAEB92] text-black font-medium rounded-full hover:shadow-sm hover:shadow-[#CC66DA]/25 transform hover:scale-105 transition-all duration-300 cursor-pointer text-sm sm:text-base"
+              >
                 <span className="relative z-10">Download CV</span>
                 <Download
                   size={16}
@@ -125,7 +138,10 @@ export const Header = () => {
               </button>
 
               {/* Bouton Contact Me */}
-              <button className="group relative px-6 sm:px-8 py-3 sm:py-4 flex items-center justify-center gap-2 sm:gap-3 bg-transparent border-2 border-[#CC66DA] text-[#CC66DA] dark:text-[#CC66DA] rounded-full font-medium hover:bg-[#CC66DA]/10 transition-all duration-300 transform hover:scale-105 hover:shadow-sm hover:shadow-[#CC66DA]/25 cursor-pointer text-sm sm:text-base">
+              <button
+                onClick={() => scrollToSection("contact")}
+                className="group relative px-6 sm:px-8 py-3 sm:py-4 flex items-center justify-center gap-2 sm:gap-3 bg-transparent border-2 border-[#CC66DA] text-[#CC66DA] dark:text-[#CC66DA] rounded-full font-medium hover:bg-[#CC66DA]/10 transition-all duration-300 transform hover:scale-105 hover:shadow-sm hover:shadow-[#CC66DA]/25 cursor-pointer text-sm sm:text-base"
+              >
                 <span className="relative z-10">Contact Me</span>
                 <Mail
                   size={16}
@@ -159,7 +175,9 @@ export const Header = () => {
         {/* Indicateur de scroll - Responsive */}
         <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
           <div className="flex flex-col items-center text-gray-400 dark:text-gray-500 hover:text-[#CC66DA] dark:hover:text-[#CC66DA] transition-colors cursor-pointer">
-            <span className="text-xs sm:text-sm mb-1 sm:mb-2 font-medium">Scroll down</span>
+            <span className="text-xs sm:text-sm mb-1 sm:mb-2 font-medium">
+              Scroll down
+            </span>
             <ChevronDown size={20} className="sm:w-6 sm:h-6 animate-pulse" />
           </div>
         </div>
