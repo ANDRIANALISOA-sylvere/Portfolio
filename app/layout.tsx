@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     default: "Joséphin Sylvère | Portfolio",
     template: "%s | Joséphin Sylvère",
   },
-  description: "Joséphin Sylvère - NodeJs Developer",
+  description: "Backend Developer expert in Node.js, Express, NestJS and database systems. Crafting scalable server architectures and high-performance APIs.",
   keywords: ["developer", "portfolio", "nodejs", "web development"],
   authors: [
     { name: "Joséphin Sylvère", url: "https://josephinsylvere.vercel.app" },
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://josephin-sylvere.vercel.app",
-    title: "Joséphin Sylvère | Portfolio",
-    description: "NodeJS Developer",
+    title: "Joséphin Sylvère | Backend Developer",
+    description: "Backend Developer expert in Node.js, Express, NestJS and database systems. Crafting scalable server architectures and high-performance APIs.",
     siteName: "Joséphin Sylvère Portfolio",
     images: [
       {
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Joséphin Sylvère | Portfolio",
-    description: "NodeJS Developer",
+    description: "Backend Developer expert in Node.js, Express, NestJS and database systems. Crafting scalable server architectures and high-performance APIs.",
     creator: "@sylverejosephin",
     images: ["https://josephin-sylvere.vercel.app/images/mon-avatar.png"],
   },
