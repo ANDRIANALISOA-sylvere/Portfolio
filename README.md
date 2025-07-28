@@ -4,7 +4,7 @@
 
 # Features
 
-* **What i do** - What a real do?
+* **What i do** - What a really do?
 
 * **Projects** - A collection od selected projects, including descriptions, technologies used, and links to code/demo.
 
