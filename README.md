@@ -4,11 +4,13 @@
 
 # Features
 
-* **About me** - Learn more about my background, interests, and journey in tech.
+* **What i do** - What a real do?
 
 * **Projects** - A collection od selected projects, including descriptions, technologies used, and links to code/demo.
 
 * **Skills** - A summary of programming languages, frameworks,tools, and technologies i use.
+  
+* **XP** - My experiences (frontend,backend)
 
 * **Contact** - Easy ways to connect with me via email or social media.
 
@@ -19,6 +21,8 @@
  * **Styling** : Tailwindcss
 
  * **Hosting** : Vercel
+
+* **Animation** : Framer Motion
 
 # Setup intructions
 
