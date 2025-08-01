@@ -1,6 +1,7 @@
 "use client";
 import React, { useMemo } from "react";
 import { ReactIcon } from "./svg/React";
+import { motion } from "framer-motion";
 import { ExpressIcon } from "./svg/Express";
 import { PostgreIcon } from "./svg/Postgresql";
 import { TypescriptIcon } from "./svg/Typescript";
@@ -44,23 +45,33 @@ export const TechSkills = () => {
 
       <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-6 gap-4 sm:gap-6 md:gap-8 mt-8 sm:mt-12">
         {technologies.map((tech, index) => (
-          <div
+          <motion.div
             key={`tech-${index}`}
             className="flex flex-col items-center gap-2 sm:gap-3 hover:scale-110 transition-transform duration-300"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.5, ease: "easeInOut" },
+            }}
+            viewport={{ once: true }}
           >
             <div
               role="img"
               aria-label={tech.name}
               className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 flex items-center justify-center"
             >
+
               {tech.icon}
             </div>
+
             <span className="text-gray-900 dark:text-gray-100 font-medium text-sm sm:text-base">
               {tech.name}
             </span>
-          </div>
+          </motion.div>
         ))}
       </div>
+
     </section>
   );
 };

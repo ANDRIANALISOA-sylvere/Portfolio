@@ -12,6 +12,7 @@ import { NextIcon } from "./svg/Next";
 import { ExpressIcon } from "./svg/Express";
 import { MySQLIcon } from "./svg/MySQLIcon";
 import { LaravelIcon } from "./svg/Laravel";
+import { motion } from "framer-motion";
 
 export const Projects = () => {
   const projects = [
@@ -103,6 +104,22 @@ export const Projects = () => {
     },
   ];
 
+  // Animation variants
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  };
+
   return (
     <section className="px-2 sm:px-4 mt-20 mb-16 relative" id="projects">
       {/* Background elements - made smaller */}
@@ -111,14 +128,26 @@ export const Projects = () => {
 
       <Title title="MY PROJECTS" />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-10 px-2 sm:px-6">
+      <motion.div
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-10 px-2 sm:px-6"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, margin: "-100px" }}
+      >
         {projects.map((project, index) => (
-          <div
+          <motion.div
             key={index}
             className="group bg-white/70 dark:bg-gray-800/70 rounded-xl overflow-hidden border border-white/20 dark:border-gray-600/20 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col h-full"
+            variants={item}
+            whileHover={{ scale: 1.03 }}
           >
             {/* Image with overlay effect */}
-            <div className="h-40 sm:h-36 overflow-hidden relative">
+            <motion.div 
+              className="h-40 sm:h-36 overflow-hidden relative"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+            >
               <Image
                 src={project.image}
                 alt={project.title}
@@ -126,7 +155,7 @@ export const Projects = () => {
                 height={200}
                 className="w-full h-full p-2 sm:p-3 rounded-2xl object-cover group-hover:scale-105 transition-transform duration-500"
               />
-            </div>
+            </motion.div>
 
             <div className="p-3 sm:p-4 relative overflow-hidden flex flex-col flex-grow">
               {/* Grid background - improved */}
@@ -144,31 +173,38 @@ export const Projects = () => {
               />
 
               <div className="flex justify-between items-center mb-2">
-                <h3 className="text-lg sm:text-base font-bold text-gray-900 dark:text-white font-space-grotesk group-hover:text-[#CC66DA] dark:group-hover:text-[#FAEB92] transition-colors">
+                <motion.h3 
+                  className="text-lg sm:text-base font-bold text-gray-900 dark:text-white font-space-grotesk group-hover:text-[#CC66DA] dark:group-hover:text-[#FAEB92] transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                >
                   {project.title}
-                </h3>
+                </motion.h3>
                 <div className="flex gap-2">
                   {project.githubLink && (
-                    <a
+                    <motion.a
                       href={project.githubLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-500 hover:text-[#CC66DA] dark:hover:text-[#FAEB92] transition-colors"
                       aria-label={`View ${project.title} on GitHub`}
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}
                     >
                       <Github size={18} />
-                    </a>
+                    </motion.a>
                   )}
                   {project.liveLink && (
-                    <a
+                    <motion.a
                       href={project.liveLink}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-gray-500 hover:text-[#CC66DA] dark:hover:text-[#FAEB92] transition-colors"
                       aria-label={`View ${project.title} live demo`}
+                      whileHover={{ scale: 1.2 }}
+                      whileTap={{ scale: 0.9 }}
                     >
                       <Globe size={18} />
-                    </a>
+                    </motion.a>
                   )}
                 </div>
               </div>
@@ -183,20 +219,21 @@ export const Projects = () => {
                 </span>
                 <div className="flex gap-1">
                   {project.stack.map((icon, i) => (
-                    <div
+                    <motion.div
                       key={i}
                       className="w-6 h-6 flex items-center justify-center"
                       aria-hidden="true"
+                      whileHover={{ scale: 1.2, rotate: 10 }}
                     >
                       {icon}
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

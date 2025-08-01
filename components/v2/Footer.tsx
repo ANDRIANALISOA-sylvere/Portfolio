@@ -62,7 +62,9 @@ export const Footer = () => {
           <div className="lg:col-span-2 space-y-6">
             <div>
               <div className="w-20 h-10 mb-3 bg-gradient-to-r from-[#CC66DA] to-[#FAEB92] rounded-full flex items-center justify-center">
-                <span className="text-black font-bold text-lg monument">JS</span>
+                <span className="text-black font-bold text-lg monument">
+                  JS
+                </span>
               </div>
               <p className="text-[#CC66DA] dark:text-[#FAEB92] font-medium">
                 Backend Developer
@@ -78,7 +80,10 @@ export const Footer = () => {
             {/* Contact info */}
             <div className="space-y-3 text-sm">
               <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
-                <Mail size={16} className="text-[#CC66DA] dark:text-[#FAEB92]" />
+                <Mail
+                  size={16}
+                  className="text-[#CC66DA] dark:text-[#FAEB92]"
+                />
                 <a
                   href="mailto:josephinsylvere@gmail.com"
                   className="hover:text-[#CC66DA] dark:hover:text-[#FAEB92] transition-colors"
@@ -87,7 +92,10 @@ export const Footer = () => {
                 </a>
               </div>
               <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
-                <Phone size={16} className="text-[#CC66DA] dark:text-[#FAEB92]" />
+                <Phone
+                  size={16}
+                  className="text-[#CC66DA] dark:text-[#FAEB92]"
+                />
                 <a
                   href="tel:+261343947844"
                   className="hover:text-[#CC66DA] dark:hover:text-[#FAEB92] transition-colors"
@@ -96,7 +104,10 @@ export const Footer = () => {
                 </a>
               </div>
               <div className="flex items-center gap-3 text-gray-600 dark:text-gray-300">
-                <MapPin size={16} className="text-[#CC66DA] dark:text-[#FAEB92]" />
+                <MapPin
+                  size={16}
+                  className="text-[#CC66DA] dark:text-[#FAEB92]"
+                />
                 <span>Fianarantsoa, Madagascar</span>
               </div>
             </div>
@@ -146,7 +157,7 @@ export const Footer = () => {
             </div>
 
             {/* Newsletter */}
-            <div className="space-y-2 text-sm">
+            {/* <div className="space-y-2 text-sm">
               <p className="text-gray-600 dark:text-gray-300">Get notified about new projects</p>
               <div className="flex flex-col sm:flex-row gap-2">
                 <input
@@ -158,7 +169,7 @@ export const Footer = () => {
                   Subscribe
                 </button>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
@@ -166,7 +177,9 @@ export const Footer = () => {
         <div className="pt-8 border-t border-gray-200/50 dark:border-gray-700/50">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-600 dark:text-gray-300">
             <div className="flex items-center gap-2">
-              <span>© {currentYear} ANDRIANALISOA Joséphin Sylvère. Made with</span>
+              <span>
+                © {currentYear} ANDRIANALISOA Joséphin Sylvère. Made with
+              </span>
               <Heart size={16} className="text-red-500 animate-pulse" />
               <span>and lots of coffee.</span>
             </div>

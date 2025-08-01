@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { motion } from "framer-motion";
 import { Title } from "../ui/Title";
 import { Server, Database, Code2, ArrowUpRight } from "lucide-react";
 
@@ -35,7 +36,7 @@ export const Services = () => {
     <>
       {/* <CustomCursor /> */}
       <div
-        className="px-4 sm:px-6 mt-16 sm:mt-20 lg:mt-28 mb-12 sm:mb-16 lg:mb-20 relative overflow-x-hidden"
+        className="mt-16 px-4 sm:px-6 mb-12 sm:mb-16 lg:mb-20 relative overflow-x-hidden"
         id="services"
       >
         {/* Background decorative elements - Responsive */}
@@ -47,7 +48,17 @@ export const Services = () => {
         {/* Services list - Responsive */}
         <div className="mt-8 sm:mt-12 lg:mt-16 space-y-8 sm:space-y-12 lg:space-y-16">
           {services.map((service, index) => (
-            <div key={index} className="group relative">
+            <motion.div
+              key={index}
+              className="group relative"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 0.6, ease: "easeInOut" },
+              }}
+              viewport={{ once: true }}
+            >
               {/* Service container */}
               <div className="flex flex-col gap-4 sm:gap-6 lg:gap-8 py-4 sm:py-6 lg:py-8 border-b border-gray-200/30 dark:border-gray-700/30 hover:border-[#CC66DA]/50 dark:hover:border-[#FAEB92]/50 transition-all duration-500">
                 {/* Number and Icon - Mobile first approach */}
@@ -89,7 +100,7 @@ export const Services = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

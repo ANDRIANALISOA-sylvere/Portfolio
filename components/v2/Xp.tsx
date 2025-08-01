@@ -1,9 +1,14 @@
 "use client";
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Title } from "../ui/Title";
 import { MapPin, Calendar, ExternalLink, Briefcase } from "lucide-react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export const Xp = () => {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const experiences = [
     {
       period: "June 2025 - Present",
@@ -74,20 +79,89 @@ export const Xp = () => {
     },
   ];
 
+  const containerRef = useRef<HTMLDivElement>(null);
+  const experienceItemsRef = useRef<HTMLDivElement[]>([]);
+
+  useEffect(() => {
+    experienceItemsRef.current = experienceItemsRef.current.slice(0, experiences.length);
+
+    const ctx = gsap.context(() => {
+      // Container animation
+      gsap.from(containerRef.current, {
+        opacity: 0,
+        y: 40,
+        duration: 0.8,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
+      });
+
+      // Experience items animation
+      experienceItemsRef.current.forEach((item, index) => {
+        gsap.from(item, {
+          opacity: 0,
+          y: 30,
+          duration: 0.6,
+          ease: "back.out(1.2)",
+          delay: index * 0.15,
+          scrollTrigger: {
+            trigger: item,
+            start: "top 75%",
+            toggleActions: "play none none none",
+          },
+        });
+
+        // Hover animation - only lift effect
+        item.addEventListener("mouseenter", () => {
+          gsap.to(item, { y: -5, duration: 0.3, ease: "power1.out" });
+        });
+        item.addEventListener("mouseleave", () => {
+          gsap.to(item, { y: 0, duration: 0.3, ease: "power1.out" });
+        });
+      });
+
+      // Bottom decoration animation
+      const bottomDecoration = document.querySelector("#experience .flex.justify-center");
+      if (bottomDecoration) {
+        gsap.from(bottomDecoration, {
+          opacity: 0,
+          scaleX: 0,
+          duration: 1,
+          ease: "elastic.out(1, 0.5)",
+          scrollTrigger: {
+            trigger: bottomDecoration,
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        });
+      }
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, [experiences]);
+
   return (
-    <div className="px-4 sm:px-6 mt-20 mb-16 relative" id="experience">
-      {/* Background decorative elements - reduced size */}
+    <div ref={containerRef} className="px-4 sm:px-6 mt-20 mb-16 relative" id="experience">
+      {/* Background decorative elements */}
       <div className="absolute top-10 right-4 sm:right-10 w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-[#FAEB92] to-[#CC66DA] rounded-full opacity-5 dark:opacity-10 blur-2xl sm:blur-3xl"></div>
       <div className="absolute bottom-20 left-4 sm:left-10 w-24 h-24 sm:w-32 sm:h-32 bg-[#CC66DA] rounded-full opacity-10 dark:opacity-20 blur-xl sm:blur-2xl"></div>
       <div className="absolute bottom-1/3 left-1/5 w-2 h-2 bg-[#CC66DA] rounded-full opacity-30"></div>
 
       <Title title="EXPERIENCE" />
 
-      {/* Responsive grid */}
       <div className="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
         {experiences.map((exp, index) => (
-          <div key={index} className="group">
-            {/* Period and status - compact layout */}
+          <div
+            key={index}
+            ref={(el) => {
+              experienceItemsRef.current[index] = el as HTMLDivElement;
+            }}
+            className="group"
+          >
+            {/* Period and status */}
             <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-3">
               <div className="flex items-center gap-1 sm:gap-2 text-[#CC66DA] dark:text-[#FAEB92]">
                 <Calendar size={14} className="flex-shrink-0" />
@@ -102,7 +176,7 @@ export const Xp = () => {
               )}
             </div>
 
-            {/* Position and Company - adjusted sizes */}
+            {/* Position and Company */}
             <div className="mb-3 sm:mb-4">
               <h3 className="text-lg sm:text-xl lg:text-xl font-bold text-gray-900 dark:text-white space-grotesk group-hover:text-[#CC66DA] dark:group-hover:text-[#FAEB92] transition-colors duration-300 mb-1">
                 {exp.position}
@@ -118,7 +192,7 @@ export const Xp = () => {
               </div>
             </div>
 
-            {/* Location and type - compact */}
+            {/* Location and type */}
             <div className="flex flex-wrap items-center gap-2 sm:gap-4 text-xs sm:text-sm text-gray-500 dark:text-gray-400 mb-3 sm:mb-4">
               <div className="flex items-center gap-1">
                 <MapPin size={12} className="flex-shrink-0" />
@@ -130,12 +204,12 @@ export const Xp = () => {
               </div>
             </div>
 
-            {/* Description - adjusted text size */}
+            {/* Description */}
             <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed text-justify mb-4 sm:mb-6">
               {exp.description}
             </p>
 
-            {/* Achievements - compact */}
+            {/* Achievements */}
             <div className="mb-4 sm:mb-6">
               <h4 className="text-xs sm:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2 sm:mb-3 uppercase tracking-wide">
                 Key Achievements
@@ -153,7 +227,7 @@ export const Xp = () => {
               </ul>
             </div>
 
-            {/* Technologies - adjusted */}
+            {/* Technologies */}
             {exp.technologies && exp.technologies.length > 0 && (
               <div>
                 <h4 className="text-xs sm:text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2 sm:mb-3 uppercase tracking-wide">
@@ -178,7 +252,7 @@ export const Xp = () => {
         ))}
       </div>
 
-      {/* Bottom decoration - simplified */}
+      {/* Bottom decoration */}
       <div className="mt-12 sm:mt-16 flex justify-center">
         <div className="flex items-center gap-1 sm:gap-2">
           <div className="w-6 sm:w-8 h-px bg-gradient-to-r from-transparent to-[#CC66DA]/50"></div>

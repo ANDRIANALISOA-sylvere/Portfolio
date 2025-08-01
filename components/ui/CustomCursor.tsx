@@ -40,34 +40,37 @@ export const CustomCursor: React.FC = () => {
     };
 
     const addHoverEffects = () => {
-      const buttons = document.querySelectorAll('button, .demo-button');
-      const links = document.querySelectorAll('a, .demo-link');
-      const interactiveElements = document.querySelectorAll('.hover-cursor');
-
-      buttons.forEach((button) => {
-        button.addEventListener('mouseenter', () => {
-          cursor?.classList.add('button-hover');
-        });
-        button.addEventListener('mouseleave', () => {
-          cursor?.classList.remove('button-hover');
-        });
-      });
-
-      links.forEach((link) => {
-        link.addEventListener('mouseenter', () => {
-          cursor?.classList.add('hover');
-        });
-        link.addEventListener('mouseleave', () => {
-          cursor?.classList.remove('hover');
-        });
-      });
+      // Sélection de tous les éléments interactifs
+      const interactiveElements = document.querySelectorAll(
+        'button, a, [role="button"], input[type="submit"], input[type="button"], [data-cursor-hover], .demo-button, .demo-link, .hover-cursor'
+      );
 
       interactiveElements.forEach((element) => {
+        const isButton = element.tagName === 'BUTTON' || 
+                         element.getAttribute('role') === 'button' || 
+                         element.classList.contains('demo-button');
+        
         element.addEventListener('mouseenter', () => {
-          cursor?.classList.add('hover');
+          if (isButton) {
+            cursor?.classList.add('button-hover');
+          } else {
+            cursor?.classList.add('hover');
+          }
         });
+        
         element.addEventListener('mouseleave', () => {
-          cursor?.classList.remove('hover');
+          cursor?.classList.remove('hover', 'button-hover');
+        });
+      });
+
+      // Gestion spéciale pour les inputs et textarea
+      const inputElements = document.querySelectorAll('input, textarea, select');
+      inputElements.forEach((input) => {
+        input.addEventListener('mouseenter', () => {
+          cursor?.classList.add('input-hover');
+        });
+        input.addEventListener('mouseleave', () => {
+          cursor?.classList.remove('input-hover');
         });
       });
     };
@@ -90,15 +93,22 @@ export const CustomCursor: React.FC = () => {
     document.addEventListener('mouseup', handleMouseUp);
     window.addEventListener('resize', handleResize);
 
-    const timer = setTimeout(addHoverEffects, 100);
+    // MutationObserver pour détecter les changements dans le DOM
+    const observer = new MutationObserver(addHoverEffects);
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+
     animateCursor();
+    addHoverEffects();
 
     return () => {
       document.removeEventListener('mousemove', handleMouseMove);
       document.removeEventListener('mousedown', handleMouseDown);
       document.removeEventListener('mouseup', handleMouseUp);
       window.removeEventListener('resize', handleResize);
-      clearTimeout(timer);
+      observer.disconnect();
     };
   }, [isVisible]);
 
@@ -120,7 +130,7 @@ export const CustomCursor: React.FC = () => {
           pointer-events: none;
           z-index: 9999;
           mix-blend-mode: difference;
-          transition: all 0.1s ease;
+          transition: transform 0.1s ease, background 0.3s ease;
           transform: translate(-50%, -50%);
           left: 0;
           top: 0;
@@ -166,6 +176,11 @@ export const CustomCursor: React.FC = () => {
           transform: scale(1.2);
           border-color: rgba(204, 102, 218, 0.8);
           border-width: 3px;
+        }
+
+        .custom-cursor.input-hover {
+          transform: translate(-50%, -50%) scale(0.8);
+          opacity: 0.7;
         }
 
         @media (max-width: 1024px) {

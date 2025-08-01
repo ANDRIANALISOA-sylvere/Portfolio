@@ -11,7 +11,7 @@ export const Title = ({ title }: TitleProps) => {
       {/* Conteneur principal du titre */}
       <div className="relative z-10 text-left">
         {/* Titre principal */}
-        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold monument leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-6xl font-bold monument leading-tight">
           <span className="bg-gradient-to-r from-[#CC66DA] via-purple-600 to-[#FAEB92] bg-clip-text text-transparent animate-gradient relative">
             {title}
             {/* Ligne décorative sous le titre */}
