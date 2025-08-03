@@ -22,7 +22,7 @@
 
  * **Hosting** : Vercel
 
-* **Animation** : Framer Motion
+* **Animation** : Framer Motion, Gsap
 
 # Setup intructions
 
