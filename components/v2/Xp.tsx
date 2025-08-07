@@ -10,6 +10,23 @@ gsap.registerPlugin(ScrollTrigger);
 export const Xp = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const experiences = [
+      {
+          period: "Aug 2025 - Present",
+          company: "Innov-T",
+          position: "Backend Developer Intern",
+          location: "Fianarantsoa, Madagascar",
+          type: "Full-time Internship",
+          description: "Backend development intern at an early-stage fintech startup, building scalable APIs and supporting system architecture using Node.js and Express. Collaborated with senior developers to implement features while following best practices in security, performance, and clean code.",
+          achievements: [
+              "Developed and maintained RESTful API endpoints using Express.js",
+              "Integrated JWT authentication for secure user sessions and implemented role-based access control (RBAC)",
+              "Assisted in database design",
+              "Worked closely with frontend developers to ensure seamless API integration (React)",
+              "Documented API endpoints using Swagger/OpenAPI for better team collaboration"
+          ],
+          technologies: ["Node.js", "Express.js", "JWT", "REST APIs", "Git", "Swagger", "Postman"],
+          isActive: true
+      },
     {
       period: "June 2025 - Present",
       company: "TechZero",
@@ -24,7 +41,7 @@ export const Xp = () => {
         "Developed initial internal prototypes",
         "Prospected potential clients and partners",
       ],
-      technologies: null,
+        technologies: ["Leadership"],
       isActive: true,
     },
     {
