@@ -10,23 +10,54 @@ gsap.registerPlugin(ScrollTrigger);
 export const Xp = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const experiences = [
-      {
-          period: "Aug 2025 - Present",
-          company: "Innov-T",
-          position: "Backend Developer Intern",
-          location: "Fianarantsoa, Madagascar",
-          type: "Full-time Internship",
-          description: "Backend development intern at an early-stage fintech startup, building scalable APIs and supporting system architecture using Node.js and Express. Collaborated with senior developers to implement features while following best practices in security, performance, and clean code.",
-          achievements: [
-              "Developed and maintained RESTful API endpoints using Express.js",
-              "Integrated JWT authentication for secure user sessions and implemented role-based access control (RBAC)",
-              "Assisted in database design",
-              "Worked closely with frontend developers to ensure seamless API integration (React)",
-              "Documented API endpoints using Swagger/OpenAPI for better team collaboration"
-          ],
-          technologies: ["Node.js", "Express.js", "JWT", "REST APIs", "Git", "Swagger", "Postman"],
-          isActive: true
-      },
+    {
+      period: "Sept 2025 - Present",
+      company: "FOTOTRA M.A.P.E.S.F.",
+      position: "Frontend Developer (Freelance)",
+      location: "Full Remote",
+      type: "Freelance",
+      link: "https://fototra-mapesf.mg",
+      description:
+        "Development of dynamic user interfaces and API integration in React-based web applications. Designed and implemented a modern e-commerce website with product and cart management features. Contributed to creating responsive user experiences using React.js.",
+      achievements: [
+        "Developed dynamic user interfaces and integrated APIs in React web applications",
+        "Designed and implemented a modern e-commerce website with product and cart management",
+        "Contributed to creating smooth and responsive user experiences using React.js",
+      ],
+      technologies: [
+        "React.js",
+        "Tailwind CSS",
+        "zustand"
+      ],
+      isActive: true,
+    },
+    {
+      period: "Aug 2025 - Present",
+      company: "Innov-T",
+      position: "Backend Developer Intern",
+      location: "Fianarantsoa, Madagascar",
+      type: "Full-time Internship",
+      link: "https://site-web-innovt-front.onrender.com/",
+      description:
+        "Backend development intern at an early-stage fintech startup, building scalable APIs and supporting system architecture using Node.js and Express. Collaborated with senior developers to implement features while following best practices in security, performance, and clean code.",
+      achievements: [
+        "Developed and maintained RESTful API endpoints using Express.js",
+        "Integrated JWT authentication for secure user sessions and implemented role-based access control (RBAC)",
+        "Assisted in database design",
+        "Worked closely with frontend developers to ensure seamless API integration (React)",
+        "Documented API endpoints using Swagger/OpenAPI for better team collaboration",
+      ],
+      technologies: [
+        "Node.js",
+        "Express.js",
+        "JWT",
+        "REST APIs",
+        "Git",
+        "Swagger",
+        "Postman",
+      ],
+      isActive: true,
+    },
     {
       period: "June 2025 - Present",
       company: "TechZero",
@@ -41,7 +72,7 @@ export const Xp = () => {
         "Developed initial internal prototypes",
         "Prospected potential clients and partners",
       ],
-        technologies: ["Leadership"],
+      technologies: ["Leadership"],
       isActive: true,
     },
     {
@@ -59,7 +90,7 @@ export const Xp = () => {
         "Collaborated with designers to ensure design consistency across platforms",
       ],
       technologies: ["React", "Next.js"],
-      isActive: true,
+      isActive: false,
     },
     {
       period: "August - November 2024",
@@ -72,7 +103,7 @@ export const Xp = () => {
       achievements: [
         "Built complete case tracking system managing documents",
         "Implemented Telegram bot integration for real-time notifications",
-        "Designed intuitive dashboard with search and filtering capabilities"
+        "Designed intuitive dashboard with search and filtering capabilities",
       ],
       technologies: ["React", "Laravel", "Inertia", "MySQL"],
       isActive: false,
@@ -100,7 +131,10 @@ export const Xp = () => {
   const experienceItemsRef = useRef<HTMLDivElement[]>([]);
 
   useEffect(() => {
-    experienceItemsRef.current = experienceItemsRef.current.slice(0, experiences.length);
+    experienceItemsRef.current = experienceItemsRef.current.slice(
+      0,
+      experiences.length
+    );
 
     const ctx = gsap.context(() => {
       // Container animation
@@ -141,7 +175,9 @@ export const Xp = () => {
       });
 
       // Bottom decoration animation
-      const bottomDecoration = document.querySelector("#experience .flex.justify-center");
+      const bottomDecoration = document.querySelector(
+        "#experience .flex.justify-center"
+      );
       if (bottomDecoration) {
         gsap.from(bottomDecoration, {
           opacity: 0,
@@ -161,7 +197,11 @@ export const Xp = () => {
   }, [experiences]);
 
   return (
-    <div ref={containerRef} className="px-4 sm:px-6 mt-20 mb-16 relative" id="experience">
+    <div
+      ref={containerRef}
+      className="px-4 sm:px-6 mt-20 mb-16 relative"
+      id="experience"
+    >
       {/* Background decorative elements */}
       <div className="absolute top-10 right-4 sm:right-10 w-32 h-32 sm:w-40 sm:h-40 bg-gradient-to-br from-[#FAEB92] to-[#CC66DA] rounded-full opacity-5 dark:opacity-10 blur-2xl sm:blur-3xl"></div>
       <div className="absolute bottom-20 left-4 sm:left-10 w-24 h-24 sm:w-32 sm:h-32 bg-[#CC66DA] rounded-full opacity-10 dark:opacity-20 blur-xl sm:blur-2xl"></div>
@@ -199,13 +239,24 @@ export const Xp = () => {
                 {exp.position}
               </h3>
               <div className="flex items-center gap-1 sm:gap-2">
-                <span className="text-base sm:text-lg text-gray-700 dark:text-gray-300 font-medium">
-                  {exp.company}
-                </span>
-                <ExternalLink
-                  size={14}
-                  className="text-gray-400 group-hover:text-[#CC66DA] dark:group-hover:text-[#FAEB92] transition-colors duration-300 flex-shrink-0"
-                />
+                {exp.link ? (
+                  <a
+                href={exp.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1 sm:gap-2 text-base sm:text-lg text-gray-700 dark:text-gray-300 font-medium hover:text-[#CC66DA] dark:hover:text-[#FAEB92] transition-colors"
+                  >
+                    {exp.company}
+                    <ExternalLink
+                      size={14}
+                      className="text-gray-400 group-hover:text-[#CC66DA] dark:group-hover:text-[#FAEB92] transition-colors"
+                    />
+                  </a>
+                ) : (
+                  <span className="text-base sm:text-lg text-gray-700 dark:text-gray-300 font-medium">
+                    {exp.company}
+                  </span>
+                )}
               </div>
             </div>
 
