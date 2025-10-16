@@ -12,11 +12,9 @@ export const Xp = () => {
   const experiences = [
     {
       period: "Sept 2025 - Present",
-      company: "FOTOTRA M.A.P.E.S.F.",
       position: "Frontend Developer (Freelance)",
       location: "Full Remote",
       type: "Freelance",
-      link: "https://fototra-mapesf.mg",
       description:
         "Development of dynamic user interfaces and API integration in React-based web applications. Designed and implemented a modern e-commerce website with product and cart management features. Contributed to creating responsive user experiences using React.js.",
       achievements: [
