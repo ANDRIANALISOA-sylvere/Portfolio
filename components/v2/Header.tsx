@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import Avatar from "../../public/images/avatar.png";
+import Avatar from "../../public/images/avatar.jpeg";
 import React from "react";
 import { ChevronDown, Download, Mail } from "lucide-react";
 import { motion } from "framer-motion";

@@ -12,7 +12,7 @@ export const Xp = () => {
   const experiences = [
     {
       period: "Sept 2025 - Present",
-      position: "Frontend Developer (Freelance)",
+      position: "FullStack Developer (Freelance)",
       location: "Full Remote",
       type: "Freelance",
       description:
@@ -25,12 +25,15 @@ export const Xp = () => {
       technologies: [
         "React.js",
         "Tailwind CSS",
-        "zustand"
+        "zustand",
+        "Node.js",
+        "Express.js",
+        "PostgreSQL"
       ],
       isActive: true,
     },
     {
-      period: "Aug 2025 - Present",
+      period: "Aug 2025 - Nov 2025",
       company: "Innov-T",
       position: "Backend Developer Intern",
       location: "Fianarantsoa, Madagascar",
@@ -54,7 +57,7 @@ export const Xp = () => {
         "Swagger",
         "Postman",
       ],
-      isActive: true,
+      isActive: false,
     },
     {
       period: "June 2025 - Present",
