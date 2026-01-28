@@ -1,4 +1,5 @@
 import { HeroSection } from './HeroSection';
+import { Project } from './Project';
 import { Xp } from './Xp';
 
 export const Home = () => {
@@ -7,6 +8,7 @@ export const Home = () => {
       <div className="max-w-3xl w-full">
         <HeroSection />
         <Xp></Xp>
+        <Project></Project>
       </div>
     </div>
   );
