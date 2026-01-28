@@ -24,7 +24,7 @@ export const HeroSection = () => {
 
             {/* Description */}
             <div className="pt-6 sm:pt-8 pb-6 sm:pb-8 text-justify">
-                <p className='text-gray-400 leading-relaxed text-base md:text-md sm:text-lg'>
+                <p className='text-gray-400 leading-relaxed md:text-sm sm:text-md'>
                     I'm a <strong>Software Engineer</strong> from Madagascar 🇲🇬 specializing in Backend Development with Node.js and DevOps. I build scalable, high-performance systems and optimize development workflows using modern tools and best practices.
                 </p>
             </div>
