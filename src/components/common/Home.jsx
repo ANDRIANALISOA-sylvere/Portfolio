@@ -1,33 +1,26 @@
 import { HeroSection } from "./HeroSection";
+import { Projects } from "./Project";
+import { Experience } from "./Experience";
 import { GetInTouch } from "./GetInTouch";
 import { Footer } from "./Footer";
 import HeroSvg from "@/assets/hero-section.svg";
+import { Services } from "./Service";
+import { TechStack } from "./TechStack";
 
 export const Home = () => {
   return (
     <div className="min-h-screen relative">
-      {/* Contenu principal */}
       <main className="relative z-10 flex flex-col items-center">
-        {/* Hero Section avec ses SVG en plein écran */}
+        {/* Hero Section */}
         <div className="relative w-full">
-          {/* SVG Blur principal - en plein écran */}
           <div className="absolute inset-0 overflow-hidden pointer-events-none">
             <img
               src={HeroSvg}
               alt=""
-              className="absolute -top-3/20
-                right-0 md:right-1/4 md:top-0
-                w-full
-                h-full 
-                object-cover md:object-contain 
-                opacity-80 md:opacity-80 lg:opacity-80
-                scale-100 md:scale-125 lg:scale-125
-                transition-all duration-700"
+              className="absolute -top-3/20 right-0 md:right-1/4 md:top-0 w-full h-full object-cover md:object-contain opacity-80 scale-100 md:scale-125 transition-all duration-700"
               aria-hidden="true"
             />
           </div>
-
-          {/* Pattern Grille élégante - en plein écran */}
           <div className="absolute inset-0 pointer-events-none opacity-10 md:opacity-15">
             <svg
               className="w-full h-full"
@@ -44,7 +37,6 @@ export const Home = () => {
                   height="60"
                   patternUnits="userSpaceOnUse"
                 >
-                  {/* Lignes horizontales */}
                   <line
                     x1="0"
                     y1="0"
@@ -81,7 +73,6 @@ export const Home = () => {
                     strokeWidth="0.5"
                     strokeOpacity="0.3"
                   />
-                  {/* Lignes verticales */}
                   <line
                     x1="0"
                     y1="0"
@@ -124,10 +115,33 @@ export const Home = () => {
             </svg>
           </div>
 
-          {/* Hero Section Content - avec ses propres paddings mais contenu centré */}
-          <div className="flex justify-center px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl w-full">
-              <HeroSection />
+          <div className="relative w-full min-h-screen flex items-center">
+            <HeroSection />
+          </div>
+        </div>
+
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <Services />
+          </div>
+        </div>
+
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <TechStack />
+          </div>
+        </div>
+
+        {/* Projects & Experience */}
+        <div className="w-full px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              <div className="lg:col-span-2">
+                <Projects />
+              </div>
+              <div className="lg:col-span-1">
+                <Experience />
+              </div>
             </div>
           </div>
         </div>
