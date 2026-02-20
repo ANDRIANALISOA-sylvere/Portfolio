@@ -1,6 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=SUSE:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Handlee&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
+
+/* Définition de la police Gilroy */
+@font-face {
+  font-family: 'Gilroy';
+  src: url('/assets/fonts/Gilroy-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -120,19 +129,13 @@
   }
 
   body {
-    @apply bg-background text-foreground text-sm;
+    @apply bg-background text-foreground;
+    font-family: 'Gilroy', sans-serif;
   }
 }
 
-body {
-  font-family: "SUSE", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-}
-
-.suse-900 {
-  font-family: "SUSE", sans-serif;
+.Handlee-900 {
+  font-family: "Handlee", sans-serif;
   font-optical-sizing: auto;
   font-weight: 800;
   font-style: normal;
