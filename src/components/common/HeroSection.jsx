@@ -43,6 +43,13 @@ export const HeroSection = () => {
           , and Open Source Enthusiast.
         </h1>
 
+        <p className="mt-6 text-gray-600 dark:text-gray-400">
+          {" "}
+          I build modern and high-performance web applications using TypeScript
+          and the latest web technologies. <strong>Available now</strong> for
+          freelance projects and open source contributions.{" "}
+        </p>
+
         <div className="mt-8 flex gap-4">
           <a
             href="https://github.com/ANDRIANALISOA-sylvere"
