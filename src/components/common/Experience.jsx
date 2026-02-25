@@ -1,30 +1,43 @@
 import { Briefcase } from "lucide-react";
+import InnovT from "@/assets/innov-t.jpg"
+import MIM from "@/assets/MIM.jpg"
+import CUF from "@/assets/CUF.png"
+import Avatar from "@/assets/avatar.jpeg"
 
 const experiences = [
   {
     id: 1,
-    company: "TechCorp",
-    logo: "https://images.unsplash.com/photo-1549923746-c502d488b3ea?w=48&h=48&fit=crop",
-    role: "Senior Software Developer",
-    date: "2024 May — Present",
-    description: "Développement d'applications React et Node.js",
-  },
-  {
-    id: 2,
-    company: "StartupHub",
-    logo: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=48&h=48&fit=crop",
+    company: "Freelance",
+    logo: Avatar,
     role: "Full Stack Developer",
-    date: "2022 Jan — 2024 Apr",
-    description: "Création de produits MVP pour startups",
-  },
-  {
-    id: 3,
-    company: "Digital Agency",
-    logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=48&h=48&fit=crop",
-    role: "Frontend Developer",
     date: "2020 Jun — 2021 Dec",
     description: "Développement de sites web et applications",
   },
+  {
+    id: 2,
+    company: "Innov-T",
+    logo: InnovT,
+    role: "Backend Developer (Intern)",
+    date: "2025 Aug — Nov",
+    description: "Développement d'applications React et Node.js",
+  },
+  {
+    id: 3,
+    company: "MIM",
+    logo: MIM,
+    role: "Full Stack Developer (Intern)",
+    date: "2024 Sept — Nov",
+    description: "Création de produits MVP pour startups",
+  },
+  {
+    id: 4,
+    company: "CUF",
+    logo: CUF,
+    role: "Full Stack Developer (Intern)",
+    date: "2023 Aug — 2021 Oct",
+    description: "Développement de sites web et applications",
+  },
+  
 ];
 
 export const Experience = () => {

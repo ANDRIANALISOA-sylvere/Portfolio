@@ -1,35 +1,39 @@
 import { Folder } from "lucide-react";
+import ToolSmith from "@/assets/toolsmith.jpg"
+import MemoryGrid from "@/assets/MemoryGrid.jpg"
+import FlowForge from "@/assets/FlowForge.jpg"
+import RuleMind from "@/assets/RuleMind.jpg"
 
 const projects = [
   {
     id: 1,
-    name: "EcoTracker",
+    name: "ToolSmith",
     description:
       "Application de suivi d'empreinte carbone avec visualisation de données",
     repo: "https://github.com/ANDRIANALISOA-sylvere/ecotracker",
-    logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=240&fit=crop",
+    logo: ToolSmith,
   },
   {
     id: 2,
-    name: "TaskFlow",
+    name: "MemoryGrid",
     description: "Outil de gestion de projet collaboratif avec tableaux Kanban",
     repo: "https://github.com/ANDRIANALISOA-sylvere/taskflow",
-    logo: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=400&h=240&fit=crop",
+    logo: MemoryGrid,
   },
   {
     id: 3,
-    name: "MediCare",
+    name: "FlowForge",
     description: "Plateforme de téléconsultation médicale et suivi patient",
     repo: "https://github.com/ANDRIANALISOA-sylvere/medicare",
-    logo: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=240&fit=crop",
+    logo: FlowForge,
   },
   {
     id: 4,
-    name: "FinWise",
+    name: "RuleMind",
     description:
       "Application de gestion financière personnelle et investissements",
     repo: "https://github.com/ANDRIANALISOA-sylvere/finwise",
-    logo: "https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?w=400&h=240&fit=crop",
+    logo: RuleMind,
   },
   {
     id: 5,
@@ -75,7 +79,7 @@ export const Projects = () => {
                   <img
                     src={project.logo}
                     alt={project.name}
-                    className="h-full w-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+                    className="h-full object-cover  w-full transform group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-black/30" />{" "}
                   {/* overlay pour contraste */}
