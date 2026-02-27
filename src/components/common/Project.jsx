@@ -1,8 +1,8 @@
 import { Folder } from "lucide-react";
-import ToolSmith from "@/assets/toolsmith.jpg"
-import MemoryGrid from "@/assets/MemoryGrid.jpg"
-import FlowForge from "@/assets/FlowForge.jpg"
-import RuleMind from "@/assets/RuleMind.jpg"
+import ToolSmith from "../../assets/ToolSmith.jpg"
+import MemoryGrid from "../../assets/MemoryGrid.jpg"
+import FlowForge from "../../assets/FlowForge.jpg"
+import RuleMind from "../../assets/RuleMind.jpg"
 
 const projects = [
   {

@@ -3,7 +3,7 @@ import { Projects } from "./Project";
 import { Experience } from "./Experience";
 import { GetInTouch } from "./GetInTouch";
 import { Footer } from "./Footer";
-import HeroSvg from "@/assets/hero-section.svg";
+import HeroSvg from "../../assets/hero-section.svg";
 import { Services } from "./Service";
 import { TechStack } from "./TechStack";
 

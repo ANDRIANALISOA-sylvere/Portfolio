@@ -1,4 +1,4 @@
-import Avatar from "@/assets/image.png";
+import Avatar from "../../assets/image.png";
 import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 
 export const HeroSection = () => {

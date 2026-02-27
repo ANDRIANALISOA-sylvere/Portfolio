@@ -1,8 +1,8 @@
 import { Briefcase } from "lucide-react";
-import InnovT from "@/assets/innov-t.jpg"
-import MIM from "@/assets/MIM.jpg"
-import CUF from "@/assets/CUF.png"
-import Avatar from "@/assets/avatar.jpeg"
+import InnovT from "../../assets/innov-t.jpg";
+import MIM from "../../assets/MIM.jpg";
+import CUF from "../../assets/CUF.png";
+import Avatar from "../../assets/avatar.jpeg";
 
 const experiences = [
   {
@@ -37,7 +37,6 @@ const experiences = [
     date: "2023 Aug — 2021 Oct",
     description: "Développement de sites web et applications",
   },
-  
 ];
 
 export const Experience = () => {
@@ -46,7 +45,6 @@ export const Experience = () => {
       <div className="max-w-7xl mx-auto">
         {/* Card principale */}
         <div className="rounded-xs bg-[#111111] border border-[#222222] overflow-hidden">
-          
           {/* Header */}
           <div className="flex items-center gap-3 px-6 py-5 border-b border-[#222222]">
             <div className="p-2 bg-[#161616] border border-[#222222] rounded-lg">
@@ -78,15 +76,11 @@ export const Experience = () => {
                       <h3 className="font-semibold text-white">
                         {exp.company}
                       </h3>
-                      <span className="text-sm text-gray-500">
-                        {exp.date}
-                      </span>
+                      <span className="text-sm text-gray-500">{exp.date}</span>
                     </div>
 
                     <p className="text-gray-300 mb-1">{exp.role}</p>
-                    <p className="text-sm text-gray-500">
-                      {exp.description}
-                    </p>
+                    <p className="text-sm text-gray-500">{exp.description}</p>
                   </div>
                 </div>
 
