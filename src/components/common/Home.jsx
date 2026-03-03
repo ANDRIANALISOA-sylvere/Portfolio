@@ -115,11 +115,13 @@ export const Home = () => {
             </svg>
           </div>
 
-          <div className="relative w-full min-h-screen flex items-center">
+          {/* Supprimé min-h-screen et ajusté le padding */}
+          <div className="relative w-full flex items-center">
             <HeroSection />
           </div>
         </div>
 
+        {/* Ajusté le padding des sections suivantes */}
         <div className="w-full px-4 sm:px-6 lg:px-8">
           <div className="max-w-7xl mx-auto">
             <Services />
