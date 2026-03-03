@@ -1,4 +1,5 @@
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
+import { useState } from "react";
 import { useMobile } from "../../hooks/useMobile";
 
 const techs = [
@@ -14,48 +15,76 @@ const techs = [
   { id: 10, name: "Kubernetes", emoji: "☸️" },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.05,
-      delayChildren: 0.2,
-    },
-  },
-};
+const TechBadge = ({ tech, index }) => {
+  const [hovered, setHovered] = useState(false);
 
-const badgeVariants = {
-  hidden: {
-    opacity: 0,
-    scale: 0.8,
-    y: 20,
-    rotate: 0,
-  },
-  visible: (custom) => ({
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    rotate: custom % 2 === 0 ? -2 : 2,
-    transition: {
-      type: "spring",
-      stiffness: 200,
-      damping: 15,
-      duration: 0.4,
-    },
-  }),
-  hover: {
-    scale: 1.1,
-    y: -5,
-    rotate: 0,
-    boxShadow: "0 10px 20px -5px rgba(0, 0, 0, 0.5)",
-    borderColor: "#444444",
-    transition: {
-      type: "spring",
-      stiffness: 400,
-      damping: 10,
-    },
-  },
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.3, delay: index * 0.05, ease: [0.25, 0, 0, 1] }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      className="relative"
+    >
+      <motion.div
+        className="relative overflow-hidden border border-border flex items-center gap-2.5 px-4 py-2.5 cursor-default"
+        animate={{ backgroundColor: hovered ? "var(--muted)" : "transparent" }}
+        transition={{ duration: 0.2 }}
+      >
+        {/* Corner brackets */}
+        <motion.div className="absolute top-0 left-0 w-3 h-3 pointer-events-none" animate={{ opacity: hovered ? 1 : 0 }} transition={{ duration: 0.15 }}>
+          <div className="absolute top-0 left-0 w-full h-px bg-foreground" />
+          <div className="absolute top-0 left-0 h-full w-px bg-foreground" />
+        </motion.div>
+        <motion.div className="absolute top-0 right-0 w-3 h-3 pointer-events-none" animate={{ opacity: hovered ? 1 : 0 }} transition={{ duration: 0.15 }}>
+          <div className="absolute top-0 right-0 w-full h-px bg-foreground" />
+          <div className="absolute top-0 right-0 h-full w-px bg-foreground" />
+        </motion.div>
+        <motion.div className="absolute bottom-0 left-0 w-3 h-3 pointer-events-none" animate={{ opacity: hovered ? 1 : 0 }} transition={{ duration: 0.15 }}>
+          <div className="absolute bottom-0 left-0 w-full h-px bg-foreground" />
+          <div className="absolute bottom-0 left-0 h-full w-px bg-foreground" />
+        </motion.div>
+        <motion.div className="absolute bottom-0 right-0 w-3 h-3 pointer-events-none" animate={{ opacity: hovered ? 1 : 0 }} transition={{ duration: 0.15 }}>
+          <div className="absolute bottom-0 right-0 w-full h-px bg-foreground" />
+          <div className="absolute bottom-0 right-0 h-full w-px bg-foreground" />
+        </motion.div>
+
+        {/* Scanline */}
+        <AnimatePresence>
+          {hovered && (
+            <motion.div
+              className="absolute left-0 right-0 h-px pointer-events-none z-20"
+              style={{ background: "linear-gradient(90deg, transparent, var(--foreground), transparent)", opacity: 0.12 }}
+              initial={{ top: 0 }}
+              animate={{ top: "100%" }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.35, ease: "linear" }}
+            />
+          )}
+        </AnimatePresence>
+
+        {/* Left accent */}
+        <motion.div
+          className="absolute left-0 top-0 bottom-0 w-px"
+          animate={{ opacity: hovered ? 0.5 : 0, scaleY: hovered ? 1 : 0 }}
+          style={{ background: "var(--foreground)", transformOrigin: "center" }}
+          transition={{ duration: 0.2 }}
+        />
+
+        <span className="text-base leading-none">{tech.emoji}</span>
+
+        <motion.span
+          className="text-sm font-bold tracking-tight"
+          animate={{ color: hovered ? "var(--foreground)" : "var(--muted-foreground)" }}
+          transition={{ duration: 0.2 }}
+        >
+          {tech.name}
+        </motion.span>
+      </motion.div>
+    </motion.div>
+  );
 };
 
 export const TechStack = () => {
@@ -66,122 +95,60 @@ export const TechStack = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: isMobile ? 0.1 : 0.3 }}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.5 }}
       className="py-12 md:py-20"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Titre avec animation */}
-        <motion.h2
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.5 }}
-          className={`text-base md:text-lg font-bold text-white mb-4 md:mb-6 flex items-center gap-2 ${isMobile ? "justify-center" : ""}`}
-        >
-          <motion.span
-            animate={{
-              rotate: [0, 10, -10, 0],
-              scale: [1, 1.2, 1.2, 1],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatDelay: 3,
-              ease: "easeInOut",
-            }}
-            className="text-xl md:text-2xl"
-          >
-            🛠
-          </motion.span>
-          Tech Stack
-        </motion.h2>
-
-        {/* Badges avec animation staggered */}
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: isMobile ? 0.1 : 0.2 }}
-          className={`flex flex-wrap gap-2 md:gap-4 ${isMobile ? "justify-center" : ""}`}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="mb-10 px-1"
         >
-          {techs.map((tech, index) => (
+          <div className="flex items-center gap-4 mb-3">
+            <div className="text-[10px] tracking-[0.3em] opacity-40 text-foreground">
+              SYS://TECH
+            </div>
+            <div className="flex-1 h-px bg-foreground opacity-10" />
+            <div className="text-[10px] tracking-widest opacity-20 text-foreground">
+              {techs.length} ENTRIES
+            </div>
+          </div>
+          <div className="relative">
+            <h2 className="text-4xl font-black tracking-tight text-foreground leading-none">
+              TECH STACK
+            </h2>
             <motion.div
-              key={tech.id}
-              custom={index}
-              variants={badgeVariants}
-              whileHover="hover"
-              whileTap={{ scale: 0.95 }}
-              className={`flex items-center gap-1 md:gap-2 px-3 md:px-4 py-1.5 md:py-2 
-                         bg-[#111111] border border-[#222222] text-white 
-                         font-medium rounded-lg shadow-sm cursor-default 
-                         relative overflow-hidden
-                         text-xs md:text-sm`}
-            >
-              {/* Effet de brillance au hover */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
-                initial={{ x: "-100%" }}
-                whileHover={{ x: "100%" }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-              />
+              className="mt-2 h-[2px] bg-foreground"
+              initial={{ width: 0 }}
+              whileInView={{ width: "3rem" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+            />
+          </div>
+        </motion.div>
 
-              {/* Emoji avec animation */}
-              <motion.span
-                className={`relative z-10 ${isMobile ? "text-base" : "text-xl"}`}
-                whileHover={{
-                  scale: 1.2,
-                  rotate: [0, -10, 10, 0],
-                  transition: { duration: 0.3 },
-                }}
-              >
-                {tech.emoji}
-              </motion.span>
-
-              {/* Texte avec animation */}
-              <motion.span
-                className="relative z-10"
-                whileHover={{
-                  color: "#ffffff",
-                  textShadow: "0 0 8px rgba(255,255,255,0.5)",
-                }}
-              >
-                {tech.name}
-              </motion.span>
-
-              {/* Effet de particule au hover - désactivé sur mobile pour performance */}
-              {!isMobile && (
-                <motion.div
-                  className="absolute inset-0 pointer-events-none"
-                  initial={{ opacity: 0 }}
-                  whileHover={{ opacity: 1 }}
-                >
-                  {[...Array(3)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="absolute w-1 h-1 bg-primary rounded-full"
-                      initial={{
-                        x: "50%",
-                        y: "50%",
-                        scale: 0,
-                      }}
-                      animate={{
-                        x: `${30 + i * 20}%`,
-                        y: `${30 + i * 20}%`,
-                        scale: [0, 1, 0],
-                        opacity: [0, 1, 0],
-                      }}
-                      transition={{
-                        duration: 0.8,
-                        repeat: Infinity,
-                        delay: i * 0.2,
-                        ease: "easeOut",
-                      }}
-                    />
-                  ))}
-                </motion.div>
-              )}
-            </motion.div>
+        {/* Badges */}
+        <div className={`flex flex-wrap gap-[1px] ${isMobile ? "justify-center" : ""}`}>
+          {techs.map((tech, index) => (
+            <TechBadge key={tech.id} tech={tech} index={index} />
           ))}
+        </div>
+
+        {/* Footer */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="mt-6 flex items-center gap-3 px-1"
+        >
+          <div className="flex-1 h-px bg-foreground opacity-10" />
+          <div className="text-[9px] tracking-[0.2em] opacity-20 text-foreground">
+            END OF INDEX
+          </div>
         </motion.div>
       </div>
     </motion.div>

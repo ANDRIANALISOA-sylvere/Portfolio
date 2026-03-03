@@ -1,216 +1,288 @@
-import { Folder } from "lucide-react";
-import { motion } from "motion/react";
+import { motion, AnimatePresence } from "motion/react";
+import { useState } from "react";
+import { useMobile } from "../../hooks/useMobile";
 
 const projects = [
   {
     id: 1,
     name: "AuditStream",
     description:
-      "Application de suivi d'empreinte carbone avec visualisation de données",
+      "Real-time financial transaction auditing system powered by database triggers.",
     repo: "https://github.com/ANDRIANALISOA-sylvere/AuditStream",
+    tag: "IN PROGRESS",
+    wip: true,
   },
   {
     id: 2,
-    name: "ToolSmith",
+    name: "MediMeet",
     description:
-      "Application de suivi d'empreinte carbone avec visualisation de données",
-    repo: "https://github.com/ANDRIANALISOA-sylvere/ecotracker",
+      "Mobile app to book and manage medical appointments — find doctors and schedule consultations in a few taps.",
+    repo: "https://github.com/ANDRIANALISOA-sylvere/MediMeet",
+    tag: "MOBILE · HEALTH",
   },
   {
     id: 3,
-    name: "MemoryGrid",
-    description: "Outil de gestion de projet collaboratif avec tableaux Kanban",
-    repo: "https://github.com/ANDRIANALISOA-sylvere/taskflow",
+    name: "EcoPlay",
+    description:
+      "Interactive web game simulating real-life financial situations to teach budget, credit, taxes and investments.",
+    repo: "https://github.com/ANDRIANALISOA-sylvere/EcoPlay-Hackonomics2025",
+    tag: "HACKATHON HACKONOMICS",
   },
   {
     id: 4,
-    name: "FlowForge",
-    description: "Plateforme de téléconsultation médicale et suivi patient",
-    repo: "https://github.com/ANDRIANALISOA-sylvere/medicare",
+    name: "NestJsAuth-API",
+    description:
+      "NestJS auth API with Passport.js, Prisma, PostgreSQL — JWT authentication and Google OAuth 2.0.",
+    repo: "https://github.com/ANDRIANALISOA-sylvere/NestJsAuth-API",
+    tag: "API · AUTH",
   },
   {
     id: 5,
-    name: "RuleMind",
+    name: "e-Reserva",
     description:
-      "Application de gestion financière personnelle et investissements",
-    repo: "https://github.com/ANDRIANALISOA-sylvere/finwise",
-  },
-  {
-    id: 6,
-    name: "LearnHub",
-    description: "Plateforme d'apprentissage en ligne avec cours interactifs",
-    repo: "https://github.com/ANDRIANALISOA-sylvere/learnhub",
-  },
-  {
-    id: 7,
-    name: "FitTrack",
-    description: "Application de suivi fitness et nutrition avec IA",
-    repo: "https://github.com/ANDRIANALISOA-sylvere/fittrack",
+      "Mobile app to browse and book concert halls and show venues — intuitive seat discovery and reservation.",
+    repo: "https://github.com/ANDRIANALISOA-sylvere/e-Reserva",
+    tag: "MOBILE · EVENTS",
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.2,
-    },
-  },
-};
+const CornerBrackets = ({ active }) => (
+  <>
+    <motion.div
+      className="absolute top-0 left-0 w-4 h-4 pointer-events-none"
+      animate={{ opacity: active ? 1 : 0 }}
+      transition={{ duration: 0.15 }}
+    >
+      <div className="absolute top-0 left-0 w-full h-px bg-foreground" />
+      <div className="absolute top-0 left-0 h-full w-px bg-foreground" />
+    </motion.div>
+    <motion.div
+      className="absolute top-0 right-0 w-4 h-4 pointer-events-none"
+      animate={{ opacity: active ? 1 : 0 }}
+      transition={{ duration: 0.15 }}
+    >
+      <div className="absolute top-0 right-0 w-full h-px bg-foreground" />
+      <div className="absolute top-0 right-0 h-full w-px bg-foreground" />
+    </motion.div>
+    <motion.div
+      className="absolute bottom-0 left-0 w-4 h-4 pointer-events-none"
+      animate={{ opacity: active ? 1 : 0 }}
+      transition={{ duration: 0.15 }}
+    >
+      <div className="absolute bottom-0 left-0 w-full h-px bg-foreground" />
+      <div className="absolute bottom-0 left-0 h-full w-px bg-foreground" />
+    </motion.div>
+    <motion.div
+      className="absolute bottom-0 right-0 w-4 h-4 pointer-events-none"
+      animate={{ opacity: active ? 1 : 0 }}
+      transition={{ duration: 0.15 }}
+    >
+      <div className="absolute bottom-0 right-0 w-full h-px bg-foreground" />
+      <div className="absolute bottom-0 right-0 h-full w-px bg-foreground" />
+    </motion.div>
+  </>
+);
 
-const projectVariants = {
-  hidden: { 
-    opacity: 0,
-    x: -30,
-  },
-  visible: { 
-    opacity: 1,
-    x: 0,
-    transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 12,
-    }
-  },
+const ProjectRow = ({ project, index }) => {
+  const [hovered, setHovered] = useState(false);
+  const isMobile = useMobile(768);
+  const num = String(index + 1).padStart(2, "0");
+
+  return (
+    <motion.a
+      href={project.repo}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{
+        duration: 0.35,
+        delay: index * 0.06,
+        ease: [0.25, 0, 0, 1],
+      }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+      className="relative block"
+    >
+      <motion.div
+        className="relative overflow-hidden border border-border"
+        animate={{ backgroundColor: hovered ? "var(--muted)" : "transparent" }}
+        transition={{ duration: 0.2 }}
+      >
+        <CornerBrackets active={hovered} />
+
+        <AnimatePresence>
+          {hovered && (
+            <motion.div
+              className="absolute left-0 right-0 h-px pointer-events-none z-20"
+              style={{
+                background:
+                  "linear-gradient(90deg, transparent, var(--foreground), transparent)",
+                opacity: 0.12,
+              }}
+              initial={{ top: 0 }}
+              animate={{ top: "100%" }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.45, ease: "linear" }}
+            />
+          )}
+        </AnimatePresence>
+
+        <motion.div
+          className="absolute left-0 top-0 bottom-0 w-px"
+          animate={{ opacity: hovered ? 0.5 : 0, scaleY: hovered ? 1 : 0 }}
+          style={{ background: "var(--foreground)", transformOrigin: "center" }}
+          transition={{ duration: 0.2 }}
+        />
+
+        <div
+          className={`flex items-center ${isMobile ? "px-3 py-4" : "px-6 py-5"}`}
+        >
+          {!isMobile && (
+            <>
+              <motion.div
+                className="font-mono text-5xl font-black leading-none mr-6 select-none flex-shrink-0 w-16 text-right"
+                animate={{ opacity: hovered ? 0.12 : 0.04 }}
+                transition={{ duration: 0.2 }}
+                style={{ color: "var(--foreground)" }}
+              >
+                {num}
+              </motion.div>
+
+              <motion.div
+                className="self-stretch w-px mr-6 flex-shrink-0"
+                animate={{ opacity: hovered ? 0.3 : 0.1 }}
+                style={{ backgroundColor: "var(--foreground)" }}
+                transition={{ duration: 0.2 }}
+              />
+            </>
+          )}
+
+          {!isMobile && (
+            <div className="flex-shrink-0 w-28 mr-6">
+              {project.wip ? (
+                <div className="inline-flex items-center gap-1.5">
+                  <motion.span className="relative flex h-1.5 w-1.5 flex-shrink-0">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-foreground opacity-40" />
+                    <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-foreground opacity-70" />
+                  </motion.span>
+                  <motion.span
+                    className="font-mono text-[10px] tracking-[0.2em]"
+                    animate={{ opacity: hovered ? 0.8 : 0.4 }}
+                    style={{ color: "var(--foreground)" }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {project.tag}
+                  </motion.span>
+                </div>
+              ) : (
+                <motion.div
+                  className="font-mono text-[10px] tracking-[0.2em]"
+                  animate={{ opacity: hovered ? 0.8 : 0.2 }}
+                  style={{ color: "var(--foreground)" }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {project.tag}
+                </motion.div>
+              )}
+            </div>
+          )}
+
+          <div className="flex-1 min-w-0">
+            <motion.div
+              className={`font-bold tracking-tight leading-none ${isMobile ? "text-sm" : "text-base"}`}
+              animate={{
+                color: hovered
+                  ? "var(--foreground)"
+                  : "var(--muted-foreground)",
+              }}
+              transition={{ duration: 0.2 }}
+            >
+              {project.name}
+            </motion.div>
+            <motion.p
+              className="mt-1.5 text-xs leading-relaxed truncate"
+              animate={{ opacity: hovered ? 0.5 : 0.2 }}
+              style={{ color: "var(--foreground)" }}
+              transition={{ duration: 0.2 }}
+            >
+              {project.description}
+            </motion.p>
+          </div>
+
+          <motion.div
+            className="font-mono text-sm flex-shrink-0 ml-3"
+            animate={{ opacity: hovered ? 0.8 : 0.2, x: hovered ? 4 : 0 }}
+            style={{ color: "var(--foreground)" }}
+            transition={{ duration: 0.2 }}
+          >
+            ↗
+          </motion.div>
+        </div>
+      </motion.div>
+    </motion.a>
+  );
 };
 
 export const Projects = () => {
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      viewport={{ once: true, amount: 0.2 }}
-      transition={{ duration: 0.6 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.5 }}
       className="py-16 md:py-20"
     >
-      <div className="max-w-7xl mx-auto">
-        {/* Header Projects avec animation */}
-        <motion.div 
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+      <div className="max-w-4xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="flex items-center gap-3 px-6 py-5 border-b border-[#222222] mb-6"
+          transition={{ duration: 0.4 }}
+          className="mb-10 px-1"
         >
-          <motion.div 
-            whileHover={{ rotate: 360, scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 300, damping: 15 }}
-            className="p-2 bg-[#161616] border border-[#222222] rounded-lg"
-          >
-            <Folder className="w-5 h-5 text-gray-300" />
-          </motion.div>
-          <motion.h2 
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg font-bold text-white"
-          >
-            Projects
-          </motion.h2>
+          <div className="flex items-center gap-4 mb-3">
+            <div className="font-mono text-[10px] tracking-[0.3em] opacity-40 text-foreground">
+              SYS://PROJECTS
+            </div>
+            <div className="flex-1 h-px bg-foreground opacity-10" />
+            <div className="font-mono text-[10px] tracking-widest opacity-20 text-foreground">
+              {projects.length} ENTRIES
+            </div>
+          </div>
+
+          <div className="relative">
+            <h2 className="text-4xl font-black tracking-tight text-foreground leading-none">
+              PROJECTS
+            </h2>
+            <motion.div
+              className="mt-2 h-[2px] bg-foreground"
+              initial={{ width: 0 }}
+              whileInView={{ width: "3rem" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3, ease: "easeOut" }}
+            />
+          </div>
         </motion.div>
 
-        {/* Liste des projets avec animation staggered */}
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
-          className="space-y-4"
-        >
+        <div className="flex flex-col gap-[1px]">
           {projects.map((project, index) => (
-            <motion.a
-              key={project.id}
-              href={project.repo}
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={projectVariants}
-              custom={index}
-              whileHover={{ 
-                scale: 1.02,
-                transition: { type: "spring", stiffness: 400, damping: 17 }
-              }}
-              whileTap={{ scale: 0.98 }}
-              className="group block"
-            >
-              <div className="relative flex overflow-hidden rounded-xs border border-[#222222] bg-[#111111] hover:bg-[#161616] hover:border-gray-700 transition-all duration-300 min-h-[140px]">
-                {/* Dégradé décoratif */}
-                <motion.div 
-                  initial={{ opacity: 0.5 }}
-                  whileHover={{ opacity: 0.8 }}
-                  className="absolute top-0 right-0 h-full w-1/4 bg-gradient-to-br from-gray-800/50 to-gray-900/50 group-hover:from-gray-700/50 group-hover:to-gray-800/50 transition-all duration-500"
-                />
-
-                {/* Éléments décoratifs avec animations au hover */}
-                <motion.div 
-                  animate={{ rotate: [0, 5, -5, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-                  className="absolute top-4 right-6 w-12 h-12 border border-gray-700 rounded-lg rotate-12 group-hover:rotate-45 transition-transform duration-500"
-                />
-                
-                <motion.div 
-                  animate={{ scale: [1, 1.1, 1] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                  className="absolute bottom-4 right-12 w-8 h-8 border border-gray-700 rounded-full group-hover:scale-110 transition-transform duration-500"
-                />
-
-                {/* Points décoratifs avec animation */}
-                <div className="absolute top-1/2 right-16 -translate-y-1/2 space-y-1.5">
-                  {[0, 1, 2, 3].map((i) => (
-                    <motion.div
-                      key={i}
-                      animate={{ 
-                        opacity: [0.5, 1, 0.5],
-                        scale: [1, 1.2, 1]
-                      }}
-                      transition={{ 
-                        duration: 2,
-                        repeat: Infinity,
-                        delay: i * 0.3,
-                        ease: "easeInOut"
-                      }}
-                      className="w-1.5 h-1.5 bg-gray-600 rounded-full group-hover:bg-gray-400 transition-colors"
-                    />
-                  ))}
-                </div>
-
-                {/* Trait décoratif vertical */}
-                <div className="absolute right-32 top-1/2 -translate-y-1/2 w-px h-12 bg-gradient-to-b from-transparent via-gray-700 to-transparent group-hover:via-gray-500 transition-colors" />
-
-                {/* Texte */}
-                <div className="flex-1 p-6 relative z-10">
-                  <motion.h3 
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                    className="text-lg font-semibold text-white group-hover:text-primary transition-colors"
-                  >
-                    {project.name}
-                  </motion.h3>
-                  
-                  <motion.p 
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                    className="mt-2 text-white/60 text-sm max-w-[70%] group-hover:text-white/80 transition-colors"
-                  >
-                    {project.description}
-                  </motion.p>
-                  
-                  <motion.span 
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 }}
-                    whileHover={{ x: 5 }}
-                    className="mt-4 inline-block text-white/80 group-hover:text-white group-hover:underline text-sm"
-                  >
-                    View Repository →
-                  </motion.span>
-                </div>
-              </div>
-            </motion.a>
+            <ProjectRow key={project.id} project={project} index={index} />
           ))}
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.5 }}
+          className="mt-6 flex items-center gap-3 px-1"
+        >
+          <div className="flex-1 h-px bg-foreground opacity-10" />
+          <div className="font-mono text-[9px] tracking-[0.2em] opacity-20 text-foreground">
+            END OF INDEX
+          </div>
         </motion.div>
       </div>
     </motion.div>
