@@ -32,7 +32,7 @@ const experiences = [
     id: 3,
     company: "ITT Mada",
     logo: IttMada,
-    role: "Frontend Developer (Intern)",
+    role: "Frontend Developer",
     date: "Jun 2025 — Jul 2025",
     description:
       "Integrated Figma mockups and optimized UI with modern frontend frameworks and libraries.",
