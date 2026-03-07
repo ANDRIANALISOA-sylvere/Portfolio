@@ -249,7 +249,7 @@ export const Experience = () => {
           ))}
         </div>
 
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -260,7 +260,7 @@ export const Experience = () => {
           <div className="font-mono text-[9px] tracking-[0.2em] opacity-20 text-foreground">
             END OF INDEX
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </motion.div>
   );
