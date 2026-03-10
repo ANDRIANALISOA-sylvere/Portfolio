@@ -4,6 +4,15 @@ import { useMobile } from "../../hooks/useMobile";
 
 const projects = [
   {
+    id: 0,
+    name: "Toolsmith",
+    description:
+      "Backend toolbox engine to centralize, execute and audit internal developer tools — scripts, webhooks, cron jobs and admin panels.",
+    repo: "https://github.com/ANDRIANALISOA-sylvere/toolsmith",
+    tag: "IN PROGRESS",
+    wip: true,
+  },
+  {
     id: 1,
     name: "AuditStream",
     description:
@@ -271,19 +280,6 @@ export const Projects = () => {
             <ProjectRow key={project.id} project={project} index={index} />
           ))}
         </div>
-
-        {/* <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="mt-6 flex items-center gap-3 px-1"
-        >
-          <div className="flex-1 h-px bg-foreground opacity-10" />
-          <div className="font-mono text-[9px] tracking-[0.2em] opacity-20 text-foreground">
-            END OF INDEX
-          </div>
-        </motion.div> */}
       </div>
     </motion.div>
   );

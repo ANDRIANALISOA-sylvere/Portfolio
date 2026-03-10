@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { useMobile } from "../../hooks/useMobile";
 
 export const About = () => {
@@ -13,7 +13,6 @@ export const About = () => {
       className="py-12 md:py-20"
     >
       <div className="max-w-7xl mx-auto">
-
         {/* Header */}
         <div className="mb-10 px-1">
           <div className="flex items-center gap-4 mb-3">
@@ -35,7 +34,6 @@ export const About = () => {
 
         {/* Story */}
         <div className="max-w-3xl text-sm leading-relaxed text-muted-foreground space-y-4 mb-8">
-
           <p>
             I'm a backend-focused developer passionate about building scalable
             systems and efficient APIs.
@@ -49,6 +47,12 @@ export const About = () => {
           </p>
 
           <p>
+            I also have experience with{" "}
+            <span className="text-foreground">DevOps</span> practices, including
+            CI/CD pipelines, containerization with Docker.
+          </p>
+
+          <p>
             My goal is to become a strong backend engineer capable of building
             high-performance systems and distributed applications.
           </p>
@@ -58,7 +62,6 @@ export const About = () => {
             <span className="text-foreground"> 6-month remote internship </span>
             or a junior backend developer role.
           </p>
-
         </div>
       </div>
     </motion.section>
