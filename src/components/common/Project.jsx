@@ -5,15 +5,33 @@ import { useMobile } from "../../hooks/useMobile";
 const projects = [
   {
     id: 0,
-    name: "Toolsmith",
+    name: "MailPulse",
     description:
-      "Backend toolbox engine to centralize, execute and audit internal developer tools — scripts, webhooks, cron jobs and admin panels.",
-    repo: "https://github.com/ANDRIANALISOA-sylvere/toolsmith",
+      "Reliable email delivery infrastructure — send, track, and retry transactional emails at scale.",
+    repo: "https://github.com/ANDRIANALISOA-sylvere/MailPulse",
     tag: "IN PROGRESS",
     wip: true,
   },
   {
     id: 1,
+    name: "RideSync",
+    description:
+      "Real-time ride dispatch system — microservices, event-driven architecture, CQRS, WebSockets, Redis Geosearch & RabbitMQ with NestJS.",
+    repo: "https://github.com/ANDRIANALISOA-sylvere/RideSync",
+    tag: "IN PROGRESS",
+    wip: true,
+  },
+    {
+    id: 2,
+    name: "Toolsmith",
+    description:
+      "Backend toolbox engine to centralize, execute and audit internal developer tools — scripts, webhooks, cron jobs and admin panels.",
+    repo: "https://github.com/ANDRIANALISOA-sylvere/Toolsmith",
+    tag: "IN PROGRESS",
+    wip: true,
+  },
+  {
+    id: 3,
     name: "AuditStream",
     description:
       "Real-time financial transaction auditing system powered by database triggers.",
@@ -22,7 +40,7 @@ const projects = [
     wip: true,
   },
   {
-    id: 2,
+    id: 4,
     name: "MediMeet",
     description:
       "Mobile app to book and manage medical appointments — find doctors and schedule consultations in a few taps.",
@@ -30,7 +48,7 @@ const projects = [
     tag: "MOBILE · HEALTH",
   },
   {
-    id: 3,
+    id: 5,
     name: "EcoPlay",
     description:
       "Interactive web game simulating real-life financial situations to teach budget, credit, taxes and investments.",
@@ -38,7 +56,7 @@ const projects = [
     tag: "HACKATHON HACKONOMICS",
   },
   {
-    id: 4,
+    id: 6,
     name: "NestJsAuth-API",
     description:
       "NestJS auth API with Passport.js, Prisma, PostgreSQL — JWT authentication and Google OAuth 2.0.",
@@ -46,7 +64,7 @@ const projects = [
     tag: "API · AUTH",
   },
   {
-    id: 5,
+    id: 7,
     name: "e-Reserva",
     description:
       "Mobile app to browse and book concert halls and show venues — intuitive seat discovery and reservation.",

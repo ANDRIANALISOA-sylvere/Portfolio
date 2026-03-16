@@ -221,19 +221,6 @@ export const Services = () => {
             <ServiceCard key={service.id} service={service} index={index} />
           ))}
         </div>
-
-        {/* <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="mt-6 flex items-center gap-3 px-1"
-        >
-          <div className="flex-1 h-px bg-foreground opacity-10" />
-          <div className="font-mono text-[9px] tracking-[0.2em] opacity-20 text-foreground">
-            END OF INDEX
-          </div>
-        </motion.div> */}
       </div>
     </motion.div>
   );
