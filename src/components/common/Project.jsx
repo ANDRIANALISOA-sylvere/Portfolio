@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { useMobile } from "../../hooks/useMobile";
+import { Github } from "lucide-react";
 
 const projects = [
   {
@@ -165,7 +166,7 @@ const ProjectRow = ({ project, index }) => {
       className="relative block"
     >
       <motion.div
-        className="relative overflow-hidden border border-border cursor-pointer"
+        className="relative overflow-hidden border border-border"
         animate={{ backgroundColor: hovered ? "var(--muted)" : "transparent" }}
         transition={{ duration: 0.2 }}
         onHoverStart={() => !isMobile && setHovered(true)}
@@ -337,7 +338,7 @@ const ProjectRow = ({ project, index }) => {
                   style={{ color: "var(--foreground)" }}
                   transition={{ duration: 0.2 }}
                 >
-                  ↗
+                  <Github className="cursor-pointer"></Github>
                 </motion.button>
               ) : (
                 <motion.button
