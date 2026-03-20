@@ -3,6 +3,12 @@ import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 import { motion } from "motion/react";
 import { useMobile } from "../../hooks/useMobile";
 
+const MaltIcon = () => (
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M21.956 12.005a9.951 9.951 0 0 1-2.922 7.033c-.05.05-.1.1-.152.148L12 12.314l-1.882 1.882 5.98 5.98a9.992 9.992 0 0 1-4.093.862C6.56 21.038 2 16.477 2 10.993a9.993 9.993 0 0 1 9.999-9.993c2.76 0 5.262 1.116 7.074 2.922l-5.09 5.09 1.881 1.881 4.97-4.97c.717 1.4 1.122 2.986 1.122 4.082z" />
+  </svg>
+);
+
 const socials = [
   {
     href: "https://github.com/ANDRIANALISOA-sylvere",
@@ -13,6 +19,11 @@ const socials = [
     href: "https://linkedin.com/in/josephin-sylvere",
     icon: Linkedin,
     label: "LinkedIn",
+  },
+  {
+    href: "https://www.malt.com/profile/josephinsylveresylvere",
+    icon: MaltIcon,
+    label: "Malt",
   },
   {
     href: "https://twitter.com/josephinsylvere",
