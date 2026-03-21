@@ -6,6 +6,17 @@ import { Github } from "lucide-react";
 const projects = [
   {
     id: 0,
+    name: "LockCLI",
+    description: "A secure CLI password manager",
+    details:
+      "A secure CLI password manager : store, retrieve and manage your credentials locally from your terminal.",
+    repo: "https://github.com/ANDRIANALISOA-sylvere/LockCLI",
+    tag: "CLI",
+    wip: false,
+    tech: "Inquirer.js · bcryot · CLI",
+  },
+  {
+    id: 1,
     name: "MailPulse",
     description:
       "Reliable email delivery infrastructure — send, track, and retry transactional emails at scale.",
@@ -17,7 +28,7 @@ const projects = [
     tech: "NestJS · PostgreSQL · BullMQ · Redis · SMTP",
   },
   {
-    id: 1,
+    id: 2,
     name: "RideSync",
     description:
       "Real-time ride dispatch system — microservices, event-driven architecture, CQRS, WebSockets, Redis Geosearch & RabbitMQ with NestJS.",
@@ -29,7 +40,7 @@ const projects = [
     tech: "NestJS · Redis · RabbitMQ · Docker · PostgreSQL",
   },
   {
-    id: 2,
+    id: 3,
     name: "Toolsmith",
     description:
       "Backend toolbox engine to centralize, execute and audit internal developer tools — scripts, webhooks, cron jobs and admin panels.",
@@ -41,7 +52,7 @@ const projects = [
     tech: "NestJS · PostgreSQL · TypeORM · JWT · Docker",
   },
   {
-    id: 3,
+    id: 4,
     name: "AuditStream",
     description:
       "Real-time financial transaction auditing system powered by database triggers.",
@@ -53,29 +64,29 @@ const projects = [
     tech: "PostgreSQL · Node.js · WebSockets",
   },
   {
-    id: 4,
+    id: 5,
     name: "MediMeet",
     description:
       "Mobile app to book and manage medical appointments — find doctors and schedule consultations in a few taps.",
     details:
-      "React Native mobile app with Expo for booking medical appointments. Features doctor search, appointment scheduling, and consultation management. Backend built with NestJS, Prisma ORM and PostgreSQL. JWT authentication with patient and doctor roles.",
+      "React Native mobile app with Expo for booking medical appointments. Features doctor search, appointment scheduling, and consultation management. Backend built with Express.js, Prisma ORM and PostgreSQL. JWT authentication with patient and doctor roles.",
     repo: "https://github.com/ANDRIANALISOA-sylvere/MediMeet",
     tag: "MOBILE · HEALTH",
-    tech: "React Native · NestJS · Prisma · PostgreSQL · Expo",
+    tech: "React Native · Express.js · Prisma · PostgreSQL · Expo",
   },
   {
-    id: 5,
+    id: 6,
     name: "EcoPlay",
     description:
       "Interactive web game simulating real-life financial situations to teach budget, credit, taxes and investments.",
     details:
-      "Educational web game built in 48h during Hackonomics hackathon. React and TypeScript frontend with interactive financial scenarios. Players make real-life budget, credit and investment decisions and get instant feedback on their choices.",
+      "Educational web game built during Hackonomics hackathon. React and TypeScript frontend with interactive financial scenarios. Players make real-life budget, credit and investment decisions and get instant feedback on their choices.",
     repo: "https://github.com/ANDRIANALISOA-sylvere/EcoPlay-Hackonomics2025",
     tag: "HACKATHON HACKONOMICS",
-    tech: "React · TypeScript · TailwindCSS · Vite",
+    tech: "React · TypeScript · TailwindCSS · Vite · Express.js",
   },
   {
-    id: 6,
+    id: 7,
     name: "NestJsAuth-API",
     description:
       "NestJS auth API with Passport.js, Prisma, PostgreSQL — JWT authentication and Google OAuth 2.0.",
@@ -86,7 +97,7 @@ const projects = [
     tech: "NestJS · Passport.js · Prisma · PostgreSQL · JWT",
   },
   {
-    id: 7,
+    id: 8,
     name: "e-Reserva",
     description:
       "Mobile app to browse and book concert halls and show venues — intuitive seat discovery and reservation.",
