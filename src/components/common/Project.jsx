@@ -13,7 +13,7 @@ const projects = [
     repo: "https://github.com/ANDRIANALISOA-sylvere/LockCLI",
     tag: "CLI",
     wip: false,
-    tech: "Inquirer.js · bcryot · CLI",
+    tech: "Inquirer.js · bcrypt · CLI",
   },
   {
     id: 1,
