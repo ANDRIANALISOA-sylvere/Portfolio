@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { useMobile } from "../../hooks/useMobile";
-import { Github } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 
 const projects = [
   {
@@ -11,6 +11,7 @@ const projects = [
     details:
       "A secure CLI password manager : store, retrieve and manage your credentials locally from your terminal.",
     repo: "https://github.com/ANDRIANALISOA-sylvere/LockCLI",
+    live: "https://www.npmjs.com/package/@josephin/lockcli",
     tag: "CLI",
     wip: false,
     tech: "Inquirer.js · bcrypt · CLI",
@@ -162,6 +163,13 @@ const ProjectRow = ({ project, index }) => {
   const handleGithubClick = (e) => {
     e.stopPropagation();
     window.open(project.repo, "_blank");
+  };
+
+  const handleLiveClick = (e) => {
+    e.stopPropagation();
+    if (project.live) {
+      window.open(project.live, "_blank");
+    }
   };
 
   return (
@@ -340,7 +348,34 @@ const ProjectRow = ({ project, index }) => {
                 </motion.div>
               )}
 
-              {/* GitHub link icon - only visible on hover on desktop, always visible on mobile */}
+              {/* LIVE ICON */}
+              {project.live &&
+                (!isMobile ? (
+                  <motion.button
+                    onClick={handleLiveClick}
+                    className="font-mono text-sm"
+                    animate={{
+                      opacity: hovered ? 0.8 : 0.2,
+                      x: hovered ? 4 : 0,
+                    }}
+                    style={{ color: "var(--foreground)" }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ExternalLink className="cursor-pointer" />
+                  </motion.button>
+                ) : (
+                  <motion.button
+                    onClick={handleLiveClick}
+                    className="font-mono text-sm p-2 -m-2"
+                    animate={{ opacity: 0.8 }}
+                    style={{ color: "var(--foreground)" }}
+                    whileTap={{ scale: 0.9 }}
+                  >
+                    <ExternalLink size={16} />
+                  </motion.button>
+                ))}
+
+              {/* GITHUB ICON */}
               {!isMobile ? (
                 <motion.button
                   onClick={handleGithubClick}
@@ -349,7 +384,7 @@ const ProjectRow = ({ project, index }) => {
                   style={{ color: "var(--foreground)" }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Github className="cursor-pointer"></Github>
+                  <Github className="cursor-pointer" />
                 </motion.button>
               ) : (
                 <motion.button
@@ -359,16 +394,7 @@ const ProjectRow = ({ project, index }) => {
                   style={{ color: "var(--foreground)" }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                  >
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-                  </svg>
+                  {/* ton svg existant */}
                 </motion.button>
               )}
             </div>
