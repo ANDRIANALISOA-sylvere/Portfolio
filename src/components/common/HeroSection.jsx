@@ -52,7 +52,7 @@ export const HeroSection = () => {
           animate={{ opacity: 0.3 }}
           transition={{ delay: 0.3 }}
         >
-          PORTFOLIO · 2026
+          PORTFOLIO
         </motion.span>
         <div className="h-px flex-1 bg-foreground opacity-10" />
       </motion.div>
