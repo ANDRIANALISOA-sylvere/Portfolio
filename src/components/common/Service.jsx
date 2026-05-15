@@ -1,4 +1,4 @@
-import { Server, GitBranch, Database } from "lucide-react";
+import { Server, Database, BarChart3, LineChart } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useState } from "react";
 import { useMobile } from "../../hooks/useMobile";
@@ -8,25 +8,25 @@ const services = [
     id: 1,
     title: "Backend Development",
     description:
-      "Building robust and scalable APIs with Node.js, Express, and NestJS using both relational and NoSQL databases.",
+      "Building robust and scalable REST APIs and microservices with Node.js, Express, and NestJS.",
     icon: Server,
     tag: "NODE · EXPRESS · NESTJS",
   },
   {
     id: 2,
-    title: "DevOps & CI/CD",
+    title: "Data Analysis & Visualization",
     description:
-      "Automating deployments and continuous integration pipelines using Docker and Jenkins.",
-    icon: GitBranch,
-    tag: "DOCKER · GITHUB ACTIONS",
+      "Transforming raw data into actionable insights using Excel, SQL queries, and interactive dashboards with Power BI.",
+    icon: BarChart3,
+    tag: "EXCEL · SQL · POWER BI",
   },
   {
     id: 3,
-    title: "Database & API Design",
+    title: "Database Design & Optimization",
     description:
-      "Designing efficient database schemas, RESTful APIs, and optimizing queries for performance and scalability.",
+      "Designing efficient database schemas, writing optimized SQL queries, and ensuring data integrity for scalable applications.",
     icon: Database,
-    tag: "REST · SQL · NOSQL",
+    tag: "POSTGRESQL · MONGODB · MYSQL",
   },
 ];
 

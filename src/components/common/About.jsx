@@ -1,5 +1,5 @@
 import { useMobile } from "@/hooks/useMobile";
-import {motion} from "motion/react"
+import { motion } from "motion/react"
 
 export const About = () => {
   const isMobile = useMobile(768);
@@ -41,29 +41,27 @@ export const About = () => {
         <div className="max-w-3xl space-y-4 mb-8">
           {[
             <>
-              I'm a backend-focused developer passionate about building scalable
-              systems and efficient APIs.
+              I'm a Software Engineer passionate about building scalable web applications and extracting meaningful insights from data.
             </>,
             <>
-              I mainly work with{" "}
+              I specialize in <span className="text-foreground">backend development</span> with{" "}
               <span className="text-foreground">Node.js</span>,{" "}
               <span className="text-foreground">Express</span> and{" "}
-              <span className="text-foreground">NestJS</span>, designing clean
-              backend architectures and reliable services.
+              <span className="text-foreground">NestJS</span>, designing clean architectures and reliable services.
             </>,
             <>
-              I also have experience with{" "}
-              <span className="text-foreground">DevOps</span> practices,
-              including CI/CD pipelines, containerization with Docker.
+              On the <span className="text-foreground">data analysis</span> side, I work with{" "}
+              <span className="text-foreground">Excel</span>,{" "}
+              <span className="text-foreground">SQL</span>, and{" "}
+              <span className="text-foreground">Power BI</span> to transform raw data into actionable insights and compelling visualizations.
             </>,
             <>
-              My goal is to become a strong backend engineer capable of building
-              high-performance systems and distributed applications.
+              My goal is to combine software engineering and data analysis to build intelligent, data-driven applications that solve real-world problems.
             </>,
             <>
               I'm currently looking for a{" "}
               <span className="text-foreground">6-month remote internship</span>{" "}
-              or a junior backend developer role.
+              or a junior position in software engineering or data analysis.
             </>,
           ].map((text, index) => (
             <motion.p

@@ -45,16 +45,16 @@ export const HeroSection = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="h-px flex-1 bg-foreground opacity-10" />
+        <div className="flex-1 bg-foreground opacity-10" />
         <motion.span
           className="text-[10px] tracking-[0.3em] opacity-30 text-foreground"
           initial={{ opacity: 0 }}
           animate={{ opacity: 0.3 }}
           transition={{ delay: 0.3 }}
         >
-          PORTFOLIO
+          Hey, WELCOME TO MY WEBSITE
         </motion.span>
-        <div className="h-px flex-1 bg-foreground opacity-10" />
+        <div className="flex-1 bg-foreground opacity-10" />
       </motion.div>
 
       {/* Main content — relative so astronaut can anchor to it */}
@@ -124,9 +124,9 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-foreground leading-[1.05] Handlee-900"
           >
-            Software Engineer,{" "}
+            Software Engineer{" "}
             <span className="relative inline-block">
-              Freelancer
+               & Data Analyst
               <motion.span
                 initial={{ width: 0, left: "50%" }}
                 animate={{ width: "100%", left: 0 }}
@@ -135,18 +135,15 @@ export const HeroSection = () => {
                 style={{ originX: 0 }}
               />
             </span>
-            , and Open Source Enthusiast.
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className={`mt-5 md:mt-7 text-sm sm:text-base leading-relaxed opacity-50 text-foreground max-w-xl ${isMobile ? "mx-auto px-2" : ""}`}
+            className={`mt-5 md:mt-7 text-sm sm:text-base leading-relaxed opacity-50 text-foreground ${isMobile ? "mx-auto px-2" : ""}`}
           >
-            I build modern and high-performance web applications using
-            TypeScript and the latest web technologies for freelance projects
-            and open source contributions.
+            Passionate about data, I build modern and high-performance web applications using TypeScript and the latest web technologies for freelance projects.
           </motion.p>
 
           {/* Socials — no separator line */}
@@ -178,7 +175,7 @@ export const HeroSection = () => {
       </div>
 
       {/* Ligne décorative bottom */}
-      <motion.div
+      {/* <motion.div
         className="flex items-center gap-4 mt-5 md:mt-16"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -189,7 +186,7 @@ export const HeroSection = () => {
           SCROLL
         </span>
         <div className="h-px flex-1 bg-foreground opacity-10" />
-      </motion.div>
+      </motion.div> */}
     </div>
   );
 };

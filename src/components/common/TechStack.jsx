@@ -6,14 +6,16 @@ const techs = [
   { id: 1, name: "Node.js", emoji: "🟢" },
   { id: 2, name: "Express", emoji: "⚡" },
   { id: 3, name: "NestJS", emoji: "🐱" },
-  { id: 4, name: "Docker", emoji: "🐳" },
-  { id: 5, name: "Jenkins", emoji: "🤖" },
-  { id: 6, name: "JavaScript", emoji: "✨" },
-  { id: 7, name: "TypeScript", emoji: "🔷" },
-  { id: 8, name: "GraphQL", emoji: "🔺" },
-  { id: 9, name: "Kafka", emoji: "🐘" },
-  { id: 10, name: "Kubernetes", emoji: "☸️" },
-];
+  { id: 4, name: "TypeScript", emoji: "🔷" },
+  { id: 5, name: "JavaScript", emoji: "✨" },
+  { id: 6, name: "Python", emoji: "🐍" },
+  { id: 7, name: "SQL", emoji: "🗄️" },
+  { id: 8, name: "PostgreSQL", emoji: "🐘" },
+  { id: 9, name: "MySQL", emoji: "🐬" },
+  { id: 10, name: "MongoDB", emoji: "🍃" },
+  { id: 11, name: "Excel", emoji: "📊" },
+  { id: 12, name: "Power BI", emoji: "📈" },
+  { id: 13, name: "Git", emoji: "🔧" },];
 
 const TechBadge = ({ tech, index }) => {
   const [hovered, setHovered] = useState(false);
@@ -136,20 +138,6 @@ export const TechStack = () => {
             <TechBadge key={tech.id} tech={tech} index={index} />
           ))}
         </div>
-
-        {/* Footer */}
-        {/* <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.5 }}
-          className="mt-6 flex items-center gap-3 px-1"
-        >
-          <div className="flex-1 h-px bg-foreground opacity-10" />
-          <div className="text-[9px] tracking-[0.2em] opacity-20 text-foreground">
-            END OF INDEX
-          </div>
-        </motion.div> */}
       </div>
     </motion.div>
   );
